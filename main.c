@@ -2,16 +2,17 @@
 
 int main (int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc != 2)
 	{
 		printf("%s\n", argv[1]);
-		write(1, "Error", 6);
+		//write(1, "Error", 6);
 		return (0);
 	}
 	else
 	{
-		printf("%s\n", argv[2]);
+		if (ft_check_valid_list(argv[1]) == 0)
+			write(1, "Error", 6);
 		write(1, "ok", 2);
-		return (0);
+		return (1);
 	}
 }

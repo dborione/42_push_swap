@@ -7,5 +7,12 @@
 # include <string.h> //size_t
 # include <limits.h>
 # include <stdio.h>
+int ft_check_valid_list(char *lst);
+
+typedef struct s_list
+{
+    int data;
+    struct s_list *next;
+}   t_list;
 
 #endif
