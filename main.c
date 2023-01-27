@@ -43,23 +43,28 @@ int main ()
 	ft_enqueue(&queue_a, 2);
 	ft_enqueue(&queue_a, 3);
 	ft_enqueue(&queue_a, 4);
+	
+	ft_enqueue(&queue_b, 6);
+	ft_enqueue(&queue_b, 7);
+	ft_enqueue(&queue_b, 8);
+	ft_enqueue(&queue_b, 9);
+
 	ft_print_queue(&queue_a);
+	ft_print_queue(&queue_b);
+
+	printf("\n");
+
 
 	// push b
 	//ft_push(&queue_a, &queue_b);
 
-	t_node *tmp;
+	//ft_r_rotate(&queue_a);
+	//ft_rr_rotate(&queue_a, &queue_b);
+	//ft_rr_reverse_rotate(&queue_b);
+	ft_rrr_reverse_rotate(&queue_a, &queue_b);
 
-	tmp = queue_a.head;
-	ft_dequeue_head(&queue_a);
-	ft_enqueue(&queue_a, tmp->value);
-	//tmp->next = queue_a.head;
-	//queue_a.head = tmp;
-	free(tmp);
 	ft_print_queue(&queue_a);
-	//printf("queue a head:%d\n", queue_a.head->next->value);
-	//printf("queue a tail:%d\n", queue_a.tail->value);
-
+	ft_print_queue(&queue_b);
 	// printf("queue a head:%d\n", queue_a.head->value);
 	// printf("queue a tail:%d\n", queue_a.tail->value);
 	// printf("queue b head:%d\n", queue_b.head->value);

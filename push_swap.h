@@ -25,8 +25,14 @@ void	init_queue(t_queue *queue);
 int	ft_enqueue(t_queue *queue, int value);
 t_node	*ft_dequeue_head(t_queue *queue);
 t_node 	*ft_dequeue_tail(t_queue *queue);
+int	ft_enqueue_node(t_queue *queue, t_node *node);
 
 int	ft_push(t_queue *queue_a, t_queue *queue_b);
+int ft_r_rotate(t_queue *queue);
+int ft_rr_rotate(t_queue *queue_a, t_queue *queue_b);
+int ft_rr_reverse_rotate(t_queue *queue);
+int ft_rrr_reverse_rotate(t_queue *queue_a, t_queue *queue_b);
 
+int	ft_print_queue(t_queue *queue);
 
 #endif
