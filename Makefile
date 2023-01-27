@@ -17,6 +17,8 @@ CFLAGS = -Wall -Wextra -Werror
 #	Sources
 SRCS = main.c	\
 		parsing.c	\
+		queue_utils.c	\
+		moves.c	\
 
 #	Objects
 OBJS = $(SRCS:.c=.o)
