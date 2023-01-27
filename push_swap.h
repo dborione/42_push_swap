@@ -9,10 +9,16 @@
 # include <stdio.h>
 int ft_check_valid_list(char *lst);
 
-typedef struct s_list
+typedef struct s_node
 {
-    int data;
-    struct s_list *next;
-}   t_list;
+    int value;
+    struct s_node *next;
+}   t_node;
+
+typedef struct s_queue
+{
+    t_node  *head;
+    t_node  *tail;   
+}   t_queue;
 
 #endif

@@ -2,12 +2,12 @@
 
 int ft_check_valid_list(char *lst)
 {
-    t_list  *stack_a;
+    t_node  *stack_a;
 
     stack_a = malloc(sizeof(stack_a));
     if (!stack_a)
         return (0);
-    stack_a->data = 0;
+    stack_a->value = 0;
     stack_a->next = NULL;
 
     int i = 0;
@@ -18,7 +18,7 @@ int ft_check_valid_list(char *lst)
     //         return (0);
         
     // }
-    stack_a->data = lst[i] - '0';
+    stack_a->value = lst[i] - '0';
     while (lst[i])
     {
         if ((lst[i] - '0') < INT_MIN || (lst[i] - '0') > INT_MAX)
@@ -29,7 +29,7 @@ int ft_check_valid_list(char *lst)
                 return (0);
             j++;
         }
-        printf("%d", stack_a->data);
+        printf("%d", stack_a->value);
         i++;
         j = i + 1;
     }

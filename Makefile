@@ -38,7 +38,7 @@ all :	$(NAME)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)[Done!]$(DEFAULT)"
 
 #	Cleaning
