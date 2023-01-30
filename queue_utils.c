@@ -10,7 +10,7 @@ void	init_queue(t_queue *queue)
 }
 
 /*
-** Add node to queue
+** Add node to tail of queue
 */
 int	ft_enqueue(t_queue *queue, int value)
 {
@@ -35,7 +35,9 @@ int	ft_enqueue(t_queue *queue, int value)
 	return (1);
 }
 
-
+/*
+** Add node to beginning of queue
+*/
 int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 {
 	t_node	*newnode;
@@ -54,7 +56,7 @@ int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 	if (!queue->tail)
 		queue->tail = newnode;
 
-    free(node);
+   // free(node);
 	// for a queue with one node, node is both head and tail of the queue
 	return (1);
 }
@@ -66,7 +68,7 @@ int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 t_node 	*ft_dequeue_head(t_queue *queue)
 {
 	t_node	*tmp;
-	int		res;
+	//int		res;
 
 	// if the queue is empty
 	if (!queue->head)
@@ -74,7 +76,7 @@ t_node 	*ft_dequeue_head(t_queue *queue)
 
 	// store in tmp so we can free it later
 	tmp = queue->head;
-	res = tmp->value;
+	//res = tmp->value;
 	queue->head = queue->head->next;
 	if (!queue->head)
 		queue->tail = NULL;
@@ -88,7 +90,7 @@ t_node 	*ft_dequeue_tail(t_queue *queue) //segfault
 {
 	t_node	*tmp;
     t_node	*tmp2;
-	int		res;
+	//int		res;
 
 	// if the queue is empty
 	if (!queue->head)
@@ -103,7 +105,7 @@ t_node 	*ft_dequeue_tail(t_queue *queue) //segfault
     queue->tail = tmp2;
     queue->tail->next = NULL;
 
-    res = tmp->value;
+    //res = tmp->value;
 
 	if (!queue->tail)
 		queue->head = NULL;
