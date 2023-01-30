@@ -16,6 +16,7 @@ int ft_r_rotate(t_queue *queue)
 	tmp = queue->head;
 	ft_dequeue_head(queue);
 	ft_enqueue(queue, tmp->value);
+    //ft_enqueue_node(queue, tmp);
 	free(tmp);
 	//printf("queue a head:%d\n", queue_a.head->next->value);
 	//printf("queue a tail:%d\n", queue_a.tail->value);
@@ -36,20 +37,25 @@ int ft_rr_reverse_rotate(t_queue *queue)
 {
     t_node *tmp;
 
-	tmp = ft_dequeue_tail(queue);
+    //tmp = queue->tail;
+    ///tmp = malloc(sizeof(t_node));
+    tmp = ft_dequeue_tail(queue);
     //printf("%d", tmp->value);
+   // ft_enqueue(queue, tmp->value);
 	ft_enqueue_node(queue, tmp);
    // tmp->next = queue->head;
     //queue->head = tmp;
-	//free(tmp); problem here
+	//free(tmp); //problem here
 	//printf("queue a head:%d\n", queue->head->value);
     return (1);
 }
 
 int ft_rrr_reverse_rotate(t_queue *queue_a, t_queue *queue_b)
 {
-    ft_rr_reverse_rotate(queue_a);
     ft_rr_reverse_rotate(queue_b);
+    //ft_r_rotate(queue_a);
+    //ft_r_rotate(queue_a);
+    ft_rr_reverse_rotate(queue_a);
     return (1);
 }
 

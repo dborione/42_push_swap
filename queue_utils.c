@@ -18,7 +18,7 @@ int	ft_enqueue(t_queue *queue, int value)
 
 	newnode = malloc(sizeof(*newnode));
 	if (!newnode)
-		return (0);
+		return (0); // free rest of queue if it exists
 	newnode->value = value;
 	newnode->next = NULL; // end of the list
 
@@ -36,7 +36,7 @@ int	ft_enqueue(t_queue *queue, int value)
 }
 
 
-int	ft_enqueue_node(t_queue *queue, t_node *node)
+int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 {
 	t_node	*newnode;
 
@@ -82,9 +82,9 @@ t_node 	*ft_dequeue_head(t_queue *queue)
 }
 
 /*
-** Remove node from head of queue
+** Remove node from tail of queue
 */
-t_node 	*ft_dequeue_tail(t_queue *queue)
+t_node 	*ft_dequeue_tail(t_queue *queue) //segfault
 {
 	t_node	*tmp;
     t_node	*tmp2;
@@ -107,6 +107,6 @@ t_node 	*ft_dequeue_tail(t_queue *queue)
 
 	if (!queue->tail)
 		queue->head = NULL;
-	free(tmp2);
+	//free(tmp2); ->segfault here
     return (tmp);
 }
