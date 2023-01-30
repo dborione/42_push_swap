@@ -1,37 +1,71 @@
 #include "push_swap.h"
+#include "libft.h"
 
-int ft_check_valid_list(char *lst)
+
+int ft_check_list(char *arg, t_queue *queue)
 {
-    t_node  *stack_a;
+    //printf("%d", queue->head->value);
+    //printf("%s", arg);
+    char    **lst;
+    t_node *tmp;
 
-    stack_a = malloc(sizeof(stack_a));
-    if (!stack_a)
+    tmp = queue->head;
+    lst = ft_split(arg, ' ');
+    if (!lst)
         return (0);
-    stack_a->value = 0;
-    stack_a->next = NULL;
-
+    
+    int j = 0;
+    //printf("|%d", ft_atoi(lst[j]));
+    //ft_enqueue(queue, ft_atoi(lst[j]));
+    //tmp->value = ft_atoi(lst[j]);
     int i = 0;
-    int j = i + 1;
-    // while (*lst)
-    // {
-    //     if (*lst < INT_MIN || *lst > INT_MAX)
-    //         return (0);
-        
-    // }
-    stack_a->value = lst[i] - '0';
+    
     while (lst[i])
     {
-        if ((lst[i] - '0') < INT_MIN || (lst[i] - '0') > INT_MAX)
-            return (0);
-        while(lst[j])
+        while (lst[j])
         {
-            if (lst[i] == lst[j])
-                return (0);
+            ft_enqueue(queue, ft_atoi(lst[j]));
+            //tmp->value = ft_atoi(lst[j]);
+            //tmp = tmp->next;
             j++;
         }
-        printf("%d", stack_a->value);
+        j = 0;
         i++;
-        j = i + 1;
     }
     return (1);
 }
+// int ft_check_valid_list(char *lst)
+// {
+//     t_node  *stack_a;
+
+//     stack_a = malloc(sizeof(stack_a));
+//     if (!stack_a)
+//         return (0);
+//     stack_a->value = 0;
+//     stack_a->next = NULL;
+
+//     int i = 0;
+//     int j = i + 1;
+//     // while (*lst)
+//     // {
+//     //     if (*lst < INT_MIN || *lst > INT_MAX)
+//     //         return (0);
+        
+//     // }
+//     stack_a->value = lst[i] - '0';
+//     while (lst[i])
+//     {
+//         if ((lst[i] - '0') < INT_MIN || (lst[i] - '0') > INT_MAX)
+//             return (0);
+//         while(lst[j])
+//         {
+//             if (lst[i] == lst[j])
+//                 return (0);
+//             j++;
+//         }
+//         printf("%d", stack_a->value);
+//         i++;
+//         j = i + 1;
+//     }
+//     return (1);
+// }

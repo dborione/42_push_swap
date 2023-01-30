@@ -12,13 +12,16 @@
 
 #	Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 
 #	Sources
 SRCS = main.c	\
 		parsing.c	\
 		queue_utils.c	\
 		moves.c	\
+		ft_split.c 	\
+		ft_atoi.c ft_strlcpy.c ft_strlen.c ft_substr.c \
+
 
 #	Objects
 OBJS = $(SRCS:.c=.o)
