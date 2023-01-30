@@ -33,19 +33,11 @@ int	ft_print_queue(t_queue *queue)
 
 int main (int argc, char **argv)
 {
-	// if (argc != 2)
-	// {
-	// 	printf("%s\n", argv[1]);
-	// 	//write(1, "Error", 6);
-	// 	return (0);
-	// }
-	// else
-	// {
-	// 	if (ft_check_valid_list(argv[1]) == 0)
-	// 		write(1, "Error", 6);
-	// 	write(1, "ok", 2);
-	// 	return (1);
-	// }
+	if (argc < 2)
+	{
+		write(1, "Error", 6);
+		return (0);
+	}
 
 	t_queue	queue_a;
 	t_queue	queue_b;
@@ -67,9 +59,16 @@ int main (int argc, char **argv)
 
 	//ft_print_queue(&queue_a);
 	//ft_print_queue(&queue_b);
+
+	int i = 1;
+	while (argv[i])
+	{
+		ft_check_list(argv[i], &queue_a);
+		i++;
+	}
 	if (argv[1])
-		printf("%d|", argc);
-	ft_check_list(argv[1], &queue_a);
+		printf("%d|>", argc);
+	ft_sort_two(&queue_a);
 	ft_print_queue(&queue_a);
 	return (0);
 }
