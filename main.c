@@ -61,11 +61,13 @@ int main ()
 	//ft_r_rotate(&queue_a);
 	//ft_rr_rotate(&queue_a, &queue_b);
 	//ft_rr_reverse_rotate(&queue_b);
-	ft_rrr_reverse_rotate(&queue_a, &queue_b);
+	//ft_rrr_reverse_rotate(&queue_a, &queue_b);
+	//ft_swap(&queue_a);
+	ft_ss_double_swap(&queue_a, &queue_b);
 
 	ft_print_queue(&queue_a);
 	ft_print_queue(&queue_b);
-	// printf("queue a head:%d\n", queue_a.head->value);
+	//printf("queue a head:%d\n", queue_a.head->value);
 	// printf("queue a tail:%d\n", queue_a.tail->value);
 	// printf("queue b head:%d\n", queue_b.head->value);
 	// printf("queue b tail:%d\n", queue_b.tail->value);

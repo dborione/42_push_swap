@@ -34,5 +34,7 @@ int ft_rr_reverse_rotate(t_queue *queue);
 int ft_rrr_reverse_rotate(t_queue *queue_a, t_queue *queue_b);
 
 int	ft_print_queue(t_queue *queue);
+int ft_swap(t_queue *queue);
+int ft_ss_double_swap(t_queue *queue_a, t_queue *queue_b);
 
 #endif
