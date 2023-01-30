@@ -57,7 +57,7 @@ int main ()
 
 	// push b
 	//ft_push(&queue_a, &queue_b);
-
+ 
 	//ft_r_rotate(&queue_a);
 	//ft_rr_rotate(&queue_a, &queue_b);
 	//ft_rr_reverse_rotate(&queue_b);
