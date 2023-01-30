@@ -4,34 +4,22 @@
 
 int ft_check_list(char *arg, t_queue *queue)
 {
-    //printf("%d", queue->head->value);
-    //printf("%s", arg);
     char    **lst;
-    t_node *tmp;
+    int i = 0;
 
-    tmp = queue->head;
     lst = ft_split(arg, ' ');
     if (!lst)
         return (0);
-    
-    int j = 0;
-    //printf("|%d", ft_atoi(lst[j]));
-    //ft_enqueue(queue, ft_atoi(lst[j]));
-    //tmp->value = ft_atoi(lst[j]);
-    int i = 0;
-    
+
+    //printf("%d", ft_atoi(lst[1]));
+    //printf("%d", ft_atoi(lst[0][0]));
     while (lst[i])
     {
-        while (lst[j])
-        {
-            ft_enqueue(queue, ft_atoi(lst[j]));
-            //tmp->value = ft_atoi(lst[j]);
-            //tmp = tmp->next;
-            j++;
-        }
-        j = 0;
+        ft_enqueue(queue, ft_atoi(lst[i])); 
+        //with atoi: differenciate 0 as input and 0 as error
         i++;
     }
+
     return (1);
 }
 // int ft_check_valid_list(char *lst)
