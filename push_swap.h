@@ -40,5 +40,6 @@ int ft_ss_double_swap(t_queue *queue_a, t_queue *queue_b);
 int ft_check_list(char *arg, t_queue *queue);
 
 int ft_sort_two(t_queue *queue);
+int ft_sort_three(t_queue *queue);
 
 #endif

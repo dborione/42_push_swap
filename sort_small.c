@@ -7,3 +7,37 @@ int ft_sort_two(t_queue *queue)
         ft_swap(queue);
     return (1);
 }
+
+int ft_sort_three(t_queue *queue)
+{
+    if (queue->head->value == 1 && queue->tail->value == 3)
+        return (1);
+    if (queue->head->value == 1 && queue->tail->value == 2)
+    {
+        ft_swap(queue);
+        ft_r_rotate(queue);
+        return (1);
+    }
+    if (queue->head->value == 2 && queue->tail->value == 1)
+    {
+        ft_rr_reverse_rotate(queue);
+        return (1);
+    }
+    if (queue->head->value == 2 && queue->tail->value == 3)
+    {
+        ft_swap(queue);
+        return (1);
+    }
+    if (queue->head->value == 3 && queue->tail->value == 1)
+    {
+        ft_swap(queue);
+        ft_rr_reverse_rotate(queue);
+        return (1);
+    }
+    if (queue->head->value == 3 && queue->tail->value == 2)
+    {
+        ft_r_rotate(queue);
+        return (1);
+    }
+    return (0);
+}
