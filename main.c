@@ -68,7 +68,7 @@ int main (int argc, char **argv)
 	}
 	if (argv[1])
 		printf("%d|>", argc);
-	ft_sort_two(&queue_a);
+	//ft_sort_two(&queue_a);
 	ft_sort_three(&queue_a);
 	ft_print_queue(&queue_a);
 	return (0);
