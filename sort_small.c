@@ -26,3 +26,16 @@ int ft_sort_three(t_queue *queue)
     }
     return (0);
 }
+
+int ft_sort_four(t_queue *queue_a, t_queue *queue_b)
+{
+    ft_push(queue_a, queue_b);
+    ft_sort_three(queue_a);
+    if (queue_b->head->value > queue_a->head->value)
+    {
+        ft_push(queue_a, queue_b);
+        ft_swap(queue_b);
+    }
+    ft_push(queue_b, queue_a);
+    return (1);
+}

@@ -5,7 +5,7 @@ int	ft_push(t_queue *queue_a, t_queue *queue_b)
 	t_node	*tmp;
 
 	tmp = ft_dequeue_head(queue_a);
-	ft_enqueue(queue_b, tmp->value);
+	ft_enqueue_node(queue_b, tmp);
     return (1);
 }
 
