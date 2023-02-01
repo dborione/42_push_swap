@@ -67,17 +67,24 @@ int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 */
 t_node 	*ft_dequeue_head(t_queue *queue)
 {
-	t_node	*tmp;
+	t_node	*tmp = NULL;
 	//int		res;
 
+	//tmp = malloc(sizeof(t_node));
 	// if the queue is empty
 	if (!queue->head)
 		return (NULL);
 
 	// store in tmp so we can free it later
-	tmp = queue->head;
+	//tmp->value = queue->head->value;
+	//tmp->next = NULL;
+	
 	//res = tmp->value;
+	tmp = queue->head;
+	
+	//printf("%d", tmp->value);
 	queue->head = queue->head->next;
+	tmp->next = NULL;
 	if (!queue->head)
 		queue->tail = NULL;
 	return (tmp);
