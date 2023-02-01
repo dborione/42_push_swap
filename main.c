@@ -72,7 +72,8 @@ int main (int argc, char **argv)
 	//ft_sort_three(&queue_a);
 	//ft_push(&queue_a, &queue_b);
 	//ft_push(&queue_b, &queue_a);
-	ft_sort_four(&queue_a, &queue_b);
+	//ft_sort_four(&queue_a, &queue_b);
+	ft_sort_five(&queue_a, &queue_b);
 	ft_print_queue(&queue_a);
 	return (0);
 }
