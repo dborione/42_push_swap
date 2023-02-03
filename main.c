@@ -54,17 +54,18 @@ int main (int argc, char **argv)
 	if (argv[1])
 		printf("%d|>", argc);
 	//ft_push(&queue_a, &queue_b);
-	//ft_r_rotate(&queue_b);
+	//ft_r_rotate(&queue_a);
 	//ft_rr_rotate(&queue_a, &queue_b);
 	//ft_rr_reverse_rotate(&queue_a);
 	//ft_rrr_reverse_rotate(&queue_a, &queue_b);
 	//ft_swap(&queue_a);
 	//ft_ss_double_swap(&queue_a, &queue_b);
 
+
 	//ft_sort_two(&queue_a);
 	//ft_sort_three(&queue_a);
-	ft_sort_four(&queue_a, &queue_b);
-	//ft_sort_five(&queue_a, &queue_b);
+	//ft_sort_four(&queue_a, &queue_b);
+	ft_sort_five(&queue_a, &queue_b);
 	
 	ft_print_queue(&queue_a);
 	ft_print_queue(&queue_b);
