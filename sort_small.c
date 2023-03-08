@@ -72,59 +72,21 @@ int ft_sort_four(t_queue *queue_a, t_queue *queue_b)
 
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 {
-    // ft_push(queue_a, queue_b);
-    // ft_sort_four(queue_a, queue_b);
-    // if (queue_b->head->value > queue_a->head->value)
-    // {
-    //     ft_push(queue_b, queue_a);
-    //     if (queue_a->head->value > queue_a->tail->value)
-    //         ft_r_rotate(queue_a);
-    //     else
-    //     {
-    //         ft_swap(queue_a);
-    //         ft_sort_four(queue_a, queue_b);
-    //     }
-    // }
-    // else
-    //     ft_push(queue_b, queue_a);
-    // return (1);
-
-    // ft_push(queue_a, queue_b);
-    // ft_push(queue_a, queue_b);
-    // ft_sort_three(queue_a);
-    // ft_push(queue_b, queue_a);
-    // ft_sort_four(queue_a, queue_b);
-    // ft_push(queue_a, queue_b);
-    // ft_sort_four(queue_a, queue_b);
-
-    // if (queue_a->head->value > queue_a->tail->value)
-    // {
-    //     ft_rr_reverse_rotate(queue_a);
-    //     ft_sort_five(queue_a, queue_b);
-    // }
-    // ft_push(queue_a, queue_b);
-    // ft_push(queue_a, queue_b);
-    // ft_sort_three(queue_a);
-    // ft_push(queue_a, queue_b);
-    // ft_rr_reverse_rotate(queue_b);
-    // ft_push(queue_b, queue_a);
-    // if (queue_a->head->value > queue_a->head->next->value)
-    //     ft_swap(queue_a);
-    // ft_push(queue_b, queue_a);
-    // ft_push(queue_b, queue_a);
-    // return (1);
-
     ft_push(queue_a, queue_b);
     ft_push(queue_a, queue_b);
     ft_sort_three(queue_a);
     if (queue_b->head->value < queue_b->tail->value)
         ft_swap(queue_b);
-    // if (queue_b->head->value > queue_a->head->value)
-    //     ft_r_rotate(queue_a);
     ft_push(queue_b, queue_a);
     if (queue_a->head->value > queue_a->head->next->value
         && queue_a->head->value < queue_a->tail->value)
+    {
+        ft_rr_reverse_rotate(queue_a);
         ft_swap(queue_a);
+        ft_r_rotate(queue_a);
+        ft_r_rotate(queue_a);
+    }
+    ft_r_rotate(queue_a);
     ft_push(queue_b, queue_a);
     if (queue_a->head->value > queue_a->tail->value)
         ft_r_rotate(queue_a);
@@ -132,25 +94,5 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
         ft_r_rotate(queue_a);
     if (queue_a->head->value > queue_a->head->next->value)
         ft_swap(queue_a);
-    // if (queue_b->head->value < queue_a->head->value)
-    // {
-    //     ft_push(queue_b, queue_a);
-    //     if (queue_a->tail->value < queue_a->head->value)
-    //         ft_rr_reverse_rotate(queue_a);
-    //     return (1);
-    // }
-    // ft_push(queue_b, queue_a);
-    // if (queue_a->head->value > queue_a->head->next->value)
-    //     ft_swap(queue_a);
-    // ft_rr_reverse_rotate(queue_a);
-    // if (queue_b->head->value > queue_a->head->value)
-    //     ft_r_rotate(queue_a);
-    // ft_push(queue_b, queue_a);
-    // // if (queue_a->head->value > queue_a->tail->value)
-    // //     ft_rr_reverse_rotate(queue_a);
-    // // if (queue_a->head->value > queue_a->head->next->value)
-    // //     ft_swap(queue_a);
-    // if (queue_a->tail->value < queue_a->head->value)
-    //     ft_rr_reverse_rotate(queue_a);
     return (1);
 }
