@@ -28,7 +28,7 @@ SRCS = main.c	\
 OBJS = $(SRCS:.c=.o)
 
 #	Others
-NAME = push_swap.a
+NAME = push_swap
 RM = rm -f
 
 #	Colours
