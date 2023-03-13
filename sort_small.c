@@ -119,58 +119,29 @@ int ft_get_max(t_queue *queue)
 	free(tmp);
 	return (max);
 }
+
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 {
     int min;
     int max;
     int i;
 
-    i = 2;
+    i = 5;
     min = ft_get_min(queue_a);
     max = ft_get_max(queue_a);
-   // if (queue_a->head->value != min)
-
     while (i > 0)
     {
-        /* sort queue_a like: mid - max - min */
-        if (queue_a->head->value != min && queue_a->head->value != max )
-        {
-            ft_r_rotate(queue_a);
-            i--;
-        }
-        if (queue_a->head->value == min)
-        {
-            ft_r_rotate(queue_a);
-            i--;
-        }
-        if (queue_a->head->value == max && queue_a->tail->value == min)
-        {
-            ft_swap(queue_a);
-            i--;
-        }
-        if (queue_a->head->value == max && queue_a->tail->value != min)
-        {
-            ft_rr_reverse_rotate(queue_a);
-            i--;
-        }
-
-        while (queue_a->head->value != min 
-            && queue_a->head->value != max)
+        if (queue_a->head->value == min || queue_a->head->value == max)
             ft_push(queue_a, queue_b);
+        ft_r_rotate(queue_a);
+        i--;
     }
-    if (queue_a->head->value == max && queue_a->tail->value == min)
-        ft_swap(queue_a);
-
-    if (queue_b->head->value < queue_b->tail->value)
-        ft_swap(queue_b);
-    
+    ft_sort_three(queue_a);
     ft_push(queue_b, queue_a);
-    if (queue_a->head->value > queue_a->head->next->value)
-        ft_swap(queue_a);
+    if (queue_a->head->value == max)
+        ft_r_rotate(queue_a);
     ft_push(queue_b, queue_a);
-    if (queue_a->head->value > queue_a->head->next->value)
-        ft_swap(queue_a);
-    
-    ft_rr_reverse_rotate(queue_a);
+    if (queue_a->head->value == max)
+        ft_r_rotate(queue_a);
     return (1);
 }
