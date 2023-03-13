@@ -133,7 +133,8 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
     {
         if (queue_a->head->value == min || queue_a->head->value == max)
             ft_push(queue_a, queue_b);
-        ft_r_rotate(queue_a);
+        else
+            ft_r_rotate(queue_a);
         i--;
     }
     ft_sort_three(queue_a);

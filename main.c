@@ -17,11 +17,11 @@ int	ft_print_queue(t_queue *queue)
 
 int main (int argc, char **argv)
 {
-	if (argc < 2)
-	{
-		write(1, "Error", 6);
-		return (0);
-	}
+	// if (argc < 2)
+	// {
+	// 	write(1, "Error", 6);
+	// 	return (0);
+	// }
 
 	t_queue	queue_a;
 	t_queue	queue_b;
