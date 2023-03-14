@@ -125,10 +125,14 @@ int ft_queue_size(t_queue *queue)
 
 void ft_sort_small(t_queue *queue_a, t_queue *queue_b)
 {
+    if (ft_queue_size(queue_a) == 1)
+        return ;
     if (ft_queue_size(queue_a) == 2)
         ft_sort_two(queue_a);
     else if (ft_queue_size(queue_a) == 3)
         ft_sort_three(queue_a);
     else if (ft_queue_size(queue_a) <= 5)
         ft_sort_five(queue_a, queue_b);
+    else
+        ft_sort_big(queue_a, queue_b);
 }

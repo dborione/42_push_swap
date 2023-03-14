@@ -17,11 +17,11 @@ int	ft_print_queue(t_queue *queue)
 
 int main (int argc, char **argv)
 {
-	// if (argc < 2)
-	// {
-	// 	write(1, "Error", 6);
-	// 	return (0);
-	// }
+	if (argc < 2)
+	{
+		write(1, "Error", 6);
+		return (0);
+	}
 
 	t_queue	queue_a;
 	t_queue	queue_b;
@@ -33,6 +33,8 @@ int main (int argc, char **argv)
 	while (argv[i])
 	{
 		ft_check_list(argv[i], &queue_a);
+		/* if == "KO"
+			free_and_exite(queue_a, queue_b)*/
 		i++;
 	}
 	// if (argv[1])
@@ -43,6 +45,8 @@ int main (int argc, char **argv)
 	// if (argc == 5 || argc == 6)
 	
 	ft_sort_small(&queue_a, &queue_b);
+	/* if !queue_b
+		free and exit*/
 	
 	// ft_print_queue(&queue_a);
 	// ft_print_queue(&queue_b);
