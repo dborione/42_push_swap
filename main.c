@@ -28,16 +28,8 @@ int main (int argc, char **argv)
 	// if (argc == 4) 
 	// 	ft_sort_three(&queue_a);
 	// if (argc == 5 || argc == 6)
-	int min;
-	min = 1;
-	printf("%d ", min);
-	min = ft_get_index_min(&queue_a, min);
-	printf("%d ", min);
-	min = ft_get_index_min(&queue_a, min);
-	printf("%d ", min);
-	min = ft_get_index_min(&queue_a, min);
-	printf("%d ", min);
-	//ft_index(&queue_a);
+
+	ft_index(&queue_a);
 	//ft_sort_small(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
