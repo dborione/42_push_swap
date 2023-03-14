@@ -1,20 +1,5 @@
 #include "push_swap.h"
 
-int	ft_print_queue(t_queue *queue)
-{
-	t_node	*tmp;
-	
-	tmp = queue->head;
-	while(tmp)
-	{
-		printf("%d ", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("||");
-	free(tmp);
-	return (1);
-}
-
 int main (int argc, char **argv)
 {
 	if (argc < 2)
@@ -44,11 +29,12 @@ int main (int argc, char **argv)
 	// 	ft_sort_three(&queue_a);
 	// if (argc == 5 || argc == 6)
 	
-	ft_sort_small(&queue_a, &queue_b);
+	ft_index(&queue_a);
+	//ft_sort_small(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
 	
-	// ft_print_queue(&queue_a);
-	// ft_print_queue(&queue_b);
+	//ft_print_queue(&queue_a);
+	//ft_print_queue(&queue_b);
 	return (0);
 }

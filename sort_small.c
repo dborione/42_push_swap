@@ -32,39 +32,7 @@ int ft_sort_three(t_queue *queue)
     return (0);
 }
 
-int ft_get_min(t_queue *queue)
-{
-    int min;
-    t_node	*tmp;
 
-    min = queue->head->value;
-	tmp = queue->head;
-	while(tmp)
-	{
-        if (tmp->value <= min)
-            min = tmp->value;
-		tmp = tmp->next;
-	}
-	free(tmp);
-	return (min);
-}
-
-int ft_get_max(t_queue *queue)
-{
-    int max;
-    t_node	*tmp;
-
-    max = queue->head->value;
-	tmp = queue->head;
-	while(tmp)
-	{
-        if (tmp->value >= max)
-            max = tmp->value;
-		tmp = tmp->next;
-	}
-	free(tmp);
-	return (max);
-}
 
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 {
@@ -107,21 +75,6 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
     return (1);
 }
 
-int ft_queue_size(t_queue *queue)
-{
-    int size;
-    t_node	*tmp;
-
-    size = 0;
-	tmp = queue->head;
-	while(tmp)
-	{
-		tmp = tmp->next;
-        size++;
-	}
-	free(tmp);
-	return (size);
-}
 
 void ft_sort_small(t_queue *queue_a, t_queue *queue_b)
 {

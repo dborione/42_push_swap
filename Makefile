@@ -23,6 +23,7 @@ SRCS = main.c	\
 		ft_atoi.c ft_strlcpy.c ft_strlen.c ft_substr.c \
 		sort_small.c 	\
 		sort_big.c	\
+		utils.c 	\
 
 
 #	Objects

@@ -11,6 +11,7 @@
 typedef struct s_node
 {
     int value;
+    int index;
     struct s_node *next;
 }   t_node;
 
@@ -20,7 +21,7 @@ typedef struct s_queue
     t_node  *tail;   
 }   t_queue;
 
-int ft_check_valid_list(char *lst);
+
 void	init_queue(t_queue *queue);
 int	ft_enqueue(t_queue *queue, int value);
 t_node	*ft_dequeue_head(t_queue *queue);
@@ -45,5 +46,9 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b);
 void ft_sort_small(t_queue *queue_a, t_queue *queue_b);
 int ft_queue_size(t_queue *queue);
 int ft_sort_big(t_queue *queue_a, t_queue *queue_b);
+int ft_get_min(t_queue *queue);
+int ft_get_max(t_queue *queue);
+int ft_is_sorted(t_queue *queue);
+void ft_index(t_queue *queue);
 
 #endif
