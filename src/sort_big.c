@@ -94,10 +94,38 @@ int ft_get_max_bits(t_queue *queue)
 }
 
 
-// ft_radix(t_queue *queue_a, t_queue *queue_b)
-// {
+void ft_radix(t_queue *queue_a, t_queue *queue_b)
+{
+    int max_bits;
+    int i;
+    t_node	*tmp;
 
+    tmp = queue_a->head;
+    //i = 0;
+    max_bits = ft_get_max_bits(queue_a) - 1;
+    int size = ft_queue_size(queue_a);
+    //printf("%d", tmp->index >> max_bits);
+    // while (max_bits > 0)
+    // {
 
+    while (tmp)
+    {
+        //printf("%d", tmp->index >> max_bits);
+        if (((tmp->index >> max_bits) & 1) == 1)
+            ft_r_rotate(queue_a);
+        else
+            ft_push(queue_a, queue_b);
+        tmp = tmp->next;
+       // size--;
+    }
+    // //     max_bits--;
+    // //     tmp = queue_a->head;
+    // // }
+    //free(tmp);
+}
 
-
-// }
+void ft_sort_big(t_queue *queue_a, t_queue *queue_b)
+{
+    ft_index(queue_a);
+    ft_radix(queue_a, queue_b);
+}
