@@ -61,13 +61,19 @@ int ft_get_index_min(t_queue *queue, int min)
 
 	tmp = queue->head;
     new_min = tmp->value;
-	while(tmp)
+    int i;
+    i = 0;
+	while(tmp && i <= 3)
 	{
-        if (tmp->value > min && tmp->value <= new_min)
+        //printf("%d", new_min);
+        if (tmp->value < min)
             new_min = tmp->value;
         tmp = tmp->next;
+        i++;
 	}
-	free(tmp);
+//    min = new_min;
+
+	//free(tmp);
 	return (new_min);
 }
 
@@ -83,22 +89,24 @@ void ft_index(t_queue *queue)
     index = 0;
 	tmp = queue->head;
     min = ft_get_min(queue);
-    //printf("%d ", min);
+    //min = 1;
+    
     //tmp->index = index;
-	while(size > 1)
+	while(tmp && index <= size)
 	{
-       // printf("%d ", min);
-        if (tmp->value == min)
+        printf("%d ", min);
+        //printf("%d\n", tmp->value);
+        if (tmp->value != min)
+            tmp = tmp->next;
+        else
         {
             tmp->index = index;
-            size = ft_queue_size(queue);
+            tmp = queue->head;  
+            index++;
+            min = ft_get_index_min(queue, min);
         }
-        min = ft_get_index_min(queue, min);
-		tmp = tmp->next;
-        index++;
-        size--;
 	}
-    ft_print_queue(queue);
+    //ft_print_queue(queue);
     printf("\n");
-    ft_print_index(queue);
+    //ft_print_index(queue);
 }

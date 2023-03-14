@@ -50,5 +50,6 @@ int ft_get_min(t_queue *queue);
 int ft_get_max(t_queue *queue);
 int ft_is_sorted(t_queue *queue);
 void ft_index(t_queue *queue);
+int ft_get_index_min(t_queue *queue, int min);
 
 #endif
