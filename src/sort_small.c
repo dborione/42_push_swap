@@ -1,5 +1,5 @@
-#include "push_swap.h"
-#include "libft.h"
+#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
 int ft_sort_two(t_queue *queue)
 {
@@ -86,6 +86,6 @@ void ft_sort_small(t_queue *queue_a, t_queue *queue_b)
         ft_sort_three(queue_a);
     else if (ft_queue_size(queue_a) <= 5)
         ft_sort_five(queue_a, queue_b);
-    else
-        ft_sort_big(queue_a, queue_b);
+    // else
+    //     ft_sort_big(queue_a, queue_b);
 }

@@ -15,16 +15,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra
 
 #	Sources
-SRCS = main.c	\
-		parsing.c	\
-		queue_utils.c	\
-		moves.c	\
-		ft_split.c 	\
-		ft_atoi.c ft_strlcpy.c ft_strlen.c ft_substr.c \
-		sort_small.c 	\
-		sort_big.c	\
-		utils.c 	\
+FILES = main	\
+		parsing	\
+		queue_utils	\
+		moves	\
+		ft_split 	\
+		ft_atoi ft_strlcpy ft_strlen ft_substr \
+		sort_small 	\
+		sort_big	\
+		utils 	\
 
+SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 
 #	Objects
 OBJS = $(SRCS:.c=.o)

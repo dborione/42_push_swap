@@ -1,42 +1,5 @@
-#include "push_swap.h"
-#include "libft.h"
-
-int ft_sort_big(t_queue *queue_a, t_queue *queue_b)
-{
-    int i;
-    
-
-    if (ft_is_sorted(queue_a) == 1)
-        return (1);
-
-    i = 5;
-    while (i > 0)
-    {
-        ft_push(queue_a, queue_b);
-        //printf("pb\n");
-        i--;
-    }
-    ft_sort_five(queue_b, queue_a);
-    i = 5;
-    while (i > 1)
-    {
-        ft_rr_reverse_rotate(queue_b);
-        //printf("rrb\n");
-        ft_push(queue_b, queue_a);
-        //printf("pa\n");
-        i--;
-    }
-    ft_push(queue_b, queue_a);
-    //printf("pa\n");
-    if (ft_is_sorted(queue_a) == 1)
-        return (1);
-    ft_rr_reverse_rotate(queue_a);
-    //printf("ra\n");
-	ft_print_queue(queue_a);
-	ft_print_queue(queue_b);
-    // ft_sort_big(queue_a, queue_b);
-
-}
+#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
 int	ft_print_index(t_queue *queue)
 {
@@ -91,13 +54,9 @@ void ft_index(t_queue *queue)
     index = 0;
 	tmp = queue->head;
     min = ft_get_min(queue);
-    //min = 1;
-    
-    //tmp->index = index;
+
 	while(tmp && index < size)
 	{
-        //printf("%d ", min);
-        //printf("%d\n", tmp->value);
         if (tmp->value != min)
             tmp = tmp->next;
         else
@@ -108,7 +67,29 @@ void ft_index(t_queue *queue)
             min = ft_get_index_min(queue, min);
         }
 	}
-    ft_print_queue(queue);
-    printf("\n");
-    ft_print_index(queue);
+    // ft_print_queue(queue);
+    // printf("\n");
+    // ft_print_index(queue);
 }
+
+int ft_get_max_bits(t_queue *queue)
+{
+    int i;
+    int j;
+
+    t_node	*tmp;
+    tmp = queue->head;
+    i = 0;
+    j = tmp->index >> i;
+    printf("%d", j);
+    return (j);
+}
+
+
+// ft_radix(t_queue *queue_a, t_queue *queue_b)
+// {
+
+
+
+
+// }

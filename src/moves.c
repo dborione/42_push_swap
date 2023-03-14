@@ -1,5 +1,5 @@
-#include "push_swap.h"
-#include "libft.h"
+#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
 int	ft_push(t_queue *queue_a, t_queue *queue_b)
 {

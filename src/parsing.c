@@ -1,5 +1,5 @@
-#include "push_swap.h"
-#include "libft.h"
+#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
 /*
 ** Take the args as input and split them. Take the result and put it in the queue
