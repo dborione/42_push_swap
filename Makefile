@@ -23,7 +23,7 @@ FILES = main	\
 		ft_atoi ft_strlcpy ft_strlen ft_substr \
 		sort_small 	\
 		sort_big	\
-		utils 	\
+		sort_utils 	\
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 

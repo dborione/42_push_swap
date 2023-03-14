@@ -74,15 +74,23 @@ void ft_index(t_queue *queue)
 
 int ft_get_max_bits(t_queue *queue)
 {
-    int i;
-    int j;
+    int max_bits;
+    int size;
 
     t_node	*tmp;
     tmp = queue->head;
-    i = 0;
-    j = tmp->index >> i;
-    printf("%d", j);
-    return (j);
+    size = ft_queue_size(queue);
+    max_bits = 0;
+
+    while (size > 0)
+    {
+        while ((tmp->index >> max_bits) != 0)
+            max_bits++;    
+        tmp = tmp->next;
+        size--;
+    }
+    free(tmp);
+    return (max_bits);
 }
 
 
