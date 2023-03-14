@@ -38,12 +38,13 @@ int main (int argc, char **argv)
 	// if (argv[1])
 	// 	printf("%d|>", argc);
 
-	if (argc == 4) 
-		ft_sort_three(&queue_a);
-	if (argc == 5 || argc == 6)
-		ft_sort_five(&queue_a, &queue_b);
+	// if (argc == 4) 
+	// 	ft_sort_three(&queue_a);
+	// if (argc == 5 || argc == 6)
 	
-	ft_print_queue(&queue_a);
-	ft_print_queue(&queue_b);
+	ft_sort_small(&queue_a, &queue_b);
+	
+	// ft_print_queue(&queue_a);
+	// ft_print_queue(&queue_b);
 	return (0);
 }
