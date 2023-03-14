@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdlib.h>
-//include <stdio.h>
-//#include "libft.h"
 
 char	ft_convert(const char *str, int i, int sign, unsigned long res)
 {
