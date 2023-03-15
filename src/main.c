@@ -48,7 +48,7 @@ int main (int argc, char **argv)
 	/* if !queue_b
 		free and exit*/
 	
-	ft_print_queue(&queue_a);
-	ft_print_queue(&queue_b);
+	//ft_print_queue(&queue_a);
+	//ft_print_queue(&queue_b);
 	return (0);
 }
