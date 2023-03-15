@@ -50,39 +50,39 @@ void ft_index(t_queue *queue)
     i = 0;
     index = 1;
 	tmp = queue->head;
-    //min = ft_get_min(queue);
-    min = ft_get_index_min(queue, 3);
-    printf("%d", min);
-	while(i <= 5)
+    min = ft_get_min(queue);
+    min = ft_get_index_min(queue, min);
+  //  printf("%d", min);
+	while(tmp)
 	{
-        //printf("%d", min);
+    //     //printf("%d", min);
         if (tmp->value == min)
         {
-           // tmp->index = index;
-           // min = ft_get_index_min(queue, min);
-           // index++;
-           // tmp = queue->head;
-            i++;
+           tmp->index = index;
+           min = ft_get_index_min(queue, min);
+           index++;
+           tmp = queue->head;
         }
         else
             tmp = tmp->next;
+       // i++;
 
-        // if (tmp->value != min)
-        //     tmp = tmp->next;
-    //     else
-    //     {
-    //         tmp->index = index;
-    //         tmp = queue->head;  
-    //         index++;
-    //         min = ft_get_index_min(queue, min);
-    //         //printf("%d", min);
+    //     // if (tmp->value != min)
+    //     //     tmp = tmp->next;
+    // //     else
+    // //     {
+    // //         tmp->index = index;
+    // //         tmp = queue->head;  
+    // //         index++;
+    // //         min = ft_get_index_min(queue, min);
+    // //         //printf("%d", min);
 
-    //    }
-        //i++;
+    // //    }
+    //     //i++;
 	}
-   // ft_print_queue(queue);
+    ft_print_queue(queue);
     printf("\n");
-    //ft_print_index(queue);
+    ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
