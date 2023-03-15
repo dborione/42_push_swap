@@ -58,24 +58,23 @@ void ft_index(t_queue *queue)
 	tmp = queue->head;
     min = ft_get_min(queue);
     min = ft_get_index_min(queue, min);
-
-	while(tmp)
+	while(size > 0)
 	{
- 
         if (tmp->value == min)
         {
            tmp->index = index;
            min = ft_get_index_min(queue, min);
            index++;
            tmp = queue->head;
+           size--;
         }
         else
             tmp = tmp->next;
 	}
     free(tmp);
-    ft_print_queue(queue);
-    printf("\n");
-    ft_print_index(queue);
+    // ft_print_queue(queue);
+    // printf("\n");
+    // ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
