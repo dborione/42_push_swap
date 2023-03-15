@@ -72,9 +72,9 @@ void ft_index(t_queue *queue)
             tmp = tmp->next;
 	}
     free(tmp);
-    // ft_print_queue(queue);
-    // printf("\n");
-    // ft_print_index(queue);
+    ft_print_queue(queue);
+    printf("\n");
+    ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
@@ -107,30 +107,53 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     int i;
 
     tmp = queue_a->head;
+    //t_node *tmp2 = queue_b->head;
     size = ft_queue_size(queue_a);
     max_bits = ft_get_max_bits(queue_a); // 3->2
 
-    i = max_bits;
-
-
+    i = 0;
+    while (i < max_bits)
+    {
         while (size > 0)
         {
-            //tmp = queue_a->head;
-            printf("%d ", (tmp->index >> 3) & 1);
-            // if (((tmp->index >> 1) & 1) == 1)
-            //     ft_push(queue_a, queue_b);
-            // else
-            //     ft_r_rotate(queue_a);
-            
+            //printf("%d/", (tmp->index >> i) & 1);
+            tmp = queue_a->head;
+            if (((tmp->index >> i) & 1) == 1)
+                ft_r_rotate(queue_a);
+            else
+                ft_push(queue_a, queue_b);
             tmp = tmp->next;
             size--;
         }
-        // tmp = queue_b->head;
-        // while (tmp)
-        // {
-        //     ft_push(queue_b, queue_a);
-        //     tmp = queue_b->head;
-        // }
+        while ((ft_queue_size(queue_b)) != 0)
+            ft_push(queue_b, queue_a);
+        size = ft_queue_size(queue_a);
+        i++;
+    }
+
+
+
+//    while (i < max_bits)
+//     {
+//         j = 0;
+//         while (j < size)
+//         {
+//             //printf("%d/", (tmp->index >> i) & 1);
+//             tmp = queue_a->head;
+//             if (((tmp->index >> i) & 1) == 1)
+//                 ft_r_rotate(queue_a);
+//             else
+//                 ft_push(queue_a, queue_b);
+//             tmp = tmp->next;
+//             j++;
+//         }
+//         while ((ft_queue_size(queue_b)) != 0)
+//             ft_push(queue_b, queue_a);
+//         i++;
+//     }
+
+
+
 
 }
 
