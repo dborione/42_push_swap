@@ -58,7 +58,7 @@ void ft_index(t_queue *queue)
 	tmp = queue->head;
     min = ft_get_min(queue);
     min = ft_get_index_min(queue, min);
-	while(size > 0)
+	while(size > 1)
 	{
         if (tmp->value == min)
         {
