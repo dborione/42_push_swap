@@ -52,10 +52,8 @@ void ft_index(t_queue *queue)
 	tmp = queue->head;
     min = ft_get_min(queue);
     min = ft_get_index_min(queue, min);
-  //  printf("%d", min);
 	while(tmp)
 	{
-    //     //printf("%d", min);
         if (tmp->value == min)
         {
            tmp->index = index;
@@ -65,24 +63,11 @@ void ft_index(t_queue *queue)
         }
         else
             tmp = tmp->next;
-       // i++;
-
-    //     // if (tmp->value != min)
-    //     //     tmp = tmp->next;
-    // //     else
-    // //     {
-    // //         tmp->index = index;
-    // //         tmp = queue->head;  
-    // //         index++;
-    // //         min = ft_get_index_min(queue, min);
-    // //         //printf("%d", min);
-
-    // //    }
-    //     //i++;
 	}
-    ft_print_queue(queue);
-    printf("\n");
-    ft_print_index(queue);
+    free(tmp);
+    // ft_print_queue(queue);
+    // printf("\n");
+    // ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
@@ -116,25 +101,35 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
 
     tmp = queue_a->head;
     size = ft_queue_size(queue_a);
-    max_bits = ft_get_max_bits(queue_a) - 1; // 3->2
-    
-    i = 0;
-    //printf("%d/", ((tmp->index >> max_bits)&1));
-    while (tmp)
+    max_bits = ft_get_max_bits(queue_a); // 3->2
+
+    i = max_bits;
+
+    while (i < -1)
     {
-        printf("%d/", tmp->index);
-        // if (((tmp->index >> max_bits)&1) == 1)
-        //     ft_r_rotate(queue_a);
-        // else
-        //     ft_push(queue_a, queue_b);
-        tmp = tmp->next;
-        //i++;
-        //size--;
+        while (tmp)
+        {
+            if (((tmp->index >> i) & 1) == 0)
+                ft_push(queue_a, queue_b);
+            else
+                ft_r_rotate(queue_a);
+            tmp = queue_a->head;
+            tmp = tmp->next;
+        }
+        tmp = queue_b->head;
+        while (tmp)
+        {
+            ft_push(queue_b, queue_a);
+            tmp = queue_b->head;
+        }
+        i--;
     }
+    free (tmp);
+
 }
 
 void ft_sort_big(t_queue *queue_a, t_queue *queue_b)
 {
     ft_index(queue_a);
-    //ft_radix(queue_a, queue_b);
+    ft_radix(queue_a, queue_b);
 }
