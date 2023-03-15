@@ -87,5 +87,5 @@ void ft_sort_small(t_queue *queue_a, t_queue *queue_b)
     else if (ft_queue_size(queue_a) <= 5)
         ft_sort_five(queue_a, queue_b);
     else
-        ft_sort_big(queue_a, queue_b);
+        ft_radix(queue_a, queue_b);
 }

@@ -72,9 +72,9 @@ void ft_index(t_queue *queue)
             tmp = tmp->next;
 	}
     free(tmp);
-    ft_print_queue(queue);
-    printf("\n");
-    ft_print_index(queue);
+    // ft_print_queue(queue);
+    // printf("\n");
+    // ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
@@ -89,7 +89,7 @@ int ft_get_max_bits(t_queue *queue)
 
     while (size > 0)
     {
-        while ((tmp->index >> max_bits) != 0)
+        while ((tmp->index >> max_bits) > 0)
             max_bits++;    
         tmp = tmp->next;
         size--;
@@ -101,28 +101,52 @@ int ft_get_max_bits(t_queue *queue)
 
 void ft_radix(t_queue *queue_a, t_queue *queue_b)
 {
+    t_node	*tmp;
     int max_bits;
     int size;
-    t_node	*tmp;
     int i;
 
+    ft_index(queue_a);
     tmp = queue_a->head;
-    //t_node *tmp2 = queue_b->head;
     size = ft_queue_size(queue_a);
-    max_bits = ft_get_max_bits(queue_a); // 3->2
+    max_bits = ft_get_max_bits(queue_a);
+
+
+    // i = 0;
+    // int j;
+    // while (i < 4)
+    // {
+    //     j = 0;
+    //     while (j < size)
+    //     {
+    //         tmp = queue_a->head;
+    //         if (((tmp->index >> i) & 1) == 1)
+    //             ft_r_rotate(queue_a);
+    //         else
+    //             ft_push(queue_a, queue_b);
+    //         ++j;
+    //     }
+    //     while ((ft_queue_size(queue_b)) != 0)
+    //         ft_push(queue_b, queue_a);
+    //     ++i;
+    // }
+
+
+
+
+
 
     i = 0;
     while (i < max_bits)
     {
         while (size > 0)
         {
+            //tmp = queue_a->head;
             //printf("%d/", (tmp->index >> i) & 1);
-            tmp = queue_a->head;
-            if (((tmp->index >> i) & 1) == 1)
+            if (((queue_a->head->index >> i) & 1) == 1)
                 ft_r_rotate(queue_a);
             else
                 ft_push(queue_a, queue_b);
-            tmp = tmp->next;
             size--;
         }
         while ((ft_queue_size(queue_b)) != 0)
@@ -132,33 +156,4 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     }
 
 
-
-//    while (i < max_bits)
-//     {
-//         j = 0;
-//         while (j < size)
-//         {
-//             //printf("%d/", (tmp->index >> i) & 1);
-//             tmp = queue_a->head;
-//             if (((tmp->index >> i) & 1) == 1)
-//                 ft_r_rotate(queue_a);
-//             else
-//                 ft_push(queue_a, queue_b);
-//             tmp = tmp->next;
-//             j++;
-//         }
-//         while ((ft_queue_size(queue_b)) != 0)
-//             ft_push(queue_b, queue_a);
-//         i++;
-//     }
-
-
-
-
-}
-
-void ft_sort_big(t_queue *queue_a, t_queue *queue_b)
-{
-    ft_index(queue_a);
-    //ft_radix(queue_a, queue_b);
 }

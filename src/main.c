@@ -32,13 +32,13 @@ int main (int argc, char **argv)
 	// int min = ft_get_min(&queue_a);
 	// printf("%d ", min);
 
-	ft_index(&queue_a);
+	//ft_index(&queue_a);
 	//ft_get_max_bits(&queue_a);
-	//ft_sort_small(&queue_a, &queue_b);
+	ft_sort_small(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
 	
-	// ft_print_queue(&queue_a);
-	// ft_print_queue(&queue_b);
+	ft_print_queue(&queue_a);
+	ft_print_queue(&queue_b);
 	return (0);
 }
