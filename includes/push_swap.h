@@ -53,5 +53,6 @@ void ft_index(t_queue *queue);
 int ft_get_index_min(t_queue *queue, int min);
 int ft_get_max_bits(t_queue *queue);
 void ft_radix(t_queue *queue_a, t_queue *queue_b);
+void	ft_free_queue(t_queue *queue);
 
 #endif

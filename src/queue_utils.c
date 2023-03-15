@@ -119,3 +119,22 @@ t_node 	*ft_dequeue_tail(t_queue *queue) //segfault
 	//free(tmp2); ->segfault here
     return (tmp);
 }
+
+
+void	ft_free_queue(t_queue *queue)
+{
+	t_node	*tmp;
+
+	tmp = queue->head;
+	while (tmp)
+	{
+		tmp->next = NULL;
+		free(tmp);
+		queue->head = tmp;
+	}
+	//free(tmp);
+	// queue->head->value = '\0';
+	// free(queue->head->next);
+	// queue->tail->value = '\0';
+	// free(queue->tail->next);
+}
