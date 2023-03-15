@@ -29,13 +29,26 @@ int main (int argc, char **argv)
 	// 	ft_sort_three(&queue_a);
 	// if (argc == 5 || argc == 6)
 
-	//ft_index(&queue_a);
+	// int min = 0;
+	// printf("%d ", min);
+	// min = ft_get_index_min(&queue_a, min);
+	// printf("%d ", min);
+	// min = ft_get_index_min(&queue_a, min);
+	// printf("%d ", min);
+	// min = ft_get_index_min(&queue_a, min);
+	// printf("%d ", min);
+	// min = ft_get_index_min(&queue_a, min);
+	// printf("%d ", min);
+	// min = ft_get_index_min(&queue_a, min);
+	// printf("%d ", min);
+
+	// //ft_index(&queue_a);
 	//ft_get_max_bits(&queue_a);
 	ft_sort_small(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
 	
-	ft_print_queue(&queue_a);
-	ft_print_queue(&queue_b);
+	//ft_print_queue(&queue_a);
+	//ft_print_queue(&queue_b);
 	return (0);
 }

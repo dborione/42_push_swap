@@ -25,7 +25,10 @@ int ft_get_min(t_queue *queue)
 	while(tmp)
 	{
         if (tmp->value <= min)
+		{
             min = tmp->value;
+			tmp->index = 0;
+		}
 		tmp = tmp->next;
 	}
 	free(tmp);
