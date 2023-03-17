@@ -18,9 +18,9 @@ int ft_r_rotate(t_queue *queue)
     if (!queue->head)
         return (0);
 	tmp = queue->head;
-	ft_dequeue_head(queue);
+    ft_dequeue_head(queue);
 	ft_enqueue(queue, tmp->value);
-   // write(1, "ra\n", 3);
+    // write(1, "ra\n", 3);
     return (1);
 }
 

@@ -141,7 +141,7 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     {
         while (size > 0)
         {
-            //tmp = queue_a->head;
+            tmp = queue_a->head;
             //printf("%d/", (tmp->index >> i) & 1);
             if (((queue_a->head->index >> i) & 1) == 1)
                 ft_r_rotate(queue_a);

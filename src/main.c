@@ -34,7 +34,7 @@ int main (int argc, char **argv)
 
 	//ft_index(&queue_a);
 	//ft_get_max_bits(&queue_a);
-	ft_sort_small(&queue_a, &queue_b);
+	ft_sort(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
 	

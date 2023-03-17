@@ -40,7 +40,7 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
     int max;
     int i;
 
-    i = 5;
+    i = ft_queue_size(queue_a);
     min = ft_get_min(queue_a);
     max = ft_get_max(queue_a);
     while (i > 0)
@@ -76,7 +76,7 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 }
 
 
-void ft_sort_small(t_queue *queue_a, t_queue *queue_b)
+void ft_sort(t_queue *queue_a, t_queue *queue_b)
 {
     if (ft_queue_size(queue_a) == 1)
     {

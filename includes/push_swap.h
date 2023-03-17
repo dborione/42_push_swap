@@ -43,7 +43,7 @@ char *ft_check_list(char *arg, t_queue *queue);
 int ft_sort_two(t_queue *queue);
 int ft_sort_three(t_queue *queue);
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b);
-void ft_sort_small(t_queue *queue_a, t_queue *queue_b);
+void ft_sort(t_queue *queue_a, t_queue *queue_b);
 int ft_queue_size(t_queue *queue);
 void ft_sort_big(t_queue *queue_a, t_queue *queue_b);
 int ft_get_min(t_queue *queue);
@@ -53,6 +53,6 @@ void ft_index(t_queue *queue);
 int ft_get_index_min(t_queue *queue, int min);
 int ft_get_max_bits(t_queue *queue);
 void ft_radix(t_queue *queue_a, t_queue *queue_b);
-void	ft_free_queue(t_queue *queue);
+void    ft_free_queue(t_queue *queue);
 
 #endif
