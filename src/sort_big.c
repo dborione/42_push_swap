@@ -71,10 +71,10 @@ void ft_index(t_queue *queue)
         else
             tmp = tmp->next;
 	}
-    free(tmp);
-    // ft_print_queue(queue);
-    // printf("\n");
-    // ft_print_index(queue);
+   // free(tmp); // culprit
+//     ft_print_queue(queue);
+//     printf("\n");
+//     ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
@@ -94,7 +94,7 @@ int ft_get_max_bits(t_queue *queue)
         tmp = tmp->next;
         size--;
     }
-    free(tmp);
+   free(tmp);
     return (max_bits);
 }
 
@@ -107,10 +107,11 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     int i;
 
     ft_index(queue_a);
-    tmp = queue_a->head;
-    size = ft_queue_size(queue_a);
-    max_bits = ft_get_max_bits(queue_a);
-
+   tmp = queue_a->head;
+   size = ft_queue_size(queue_a);
+   max_bits = ft_get_max_bits(queue_a);
+    //printf("%d", max_bits);
+    
 
     // i = 0;
     // int j;
@@ -130,9 +131,6 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     //         ft_push(queue_b, queue_a);
     //     ++i;
     // }
-
-
-
 
 
 

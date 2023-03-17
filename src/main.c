@@ -37,6 +37,9 @@ int main (int argc, char **argv)
 	ft_sort(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
+	//int	size;
+	//size = ft_queue_size(&queue_a);
+	//printf("%d", size);
 	
 	ft_print_queue(&queue_a);
 	ft_print_queue(&queue_b);
