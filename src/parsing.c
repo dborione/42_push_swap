@@ -28,6 +28,16 @@ char *ft_check_list(char *arg, t_queue *queue)
     int i = 0;
     int nbr;
 
+    while (arg[i])
+    {
+        if (arg[i] >= '0' && arg[i] <= '9')
+            i++;
+        else if (arg[i] == ' ')
+            i++;
+        else
+            return ("KO");
+    }
+    i = 0;
     lst = ft_split(arg, ' ');
     if (!lst)
         return ("KO");
