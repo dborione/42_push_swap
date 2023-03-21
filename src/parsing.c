@@ -1,21 +1,21 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
-static int  ft_double(int i, char **lst, int nbr)
+int  ft_double_check(t_queue *queue)
 {
-   //i = i + 1;
-    //i = 1;
-    // if (ft_atoi(lst[i]) == nbr)
-    printf("%c ", lst[1][0]);
-    
-   // printf("%d ", ft_atoi(lst[i]));
-    // while (lst[i])
-    // {
-    //     printf("ghjkhjkh");
-    //     if (ft_atoi(lst[i]) == nbr)
-    //         return (0);
-    //     i++;
-    // }
+    t_node *tmp;
+
+    tmp = queue->head;
+    int i = 0;
+    int j = ft_queue_size(queue);
+    while (j > 1)
+    {
+        i = tmp->next->value;
+        if (tmp->value == i)
+            return (0);
+        tmp = tmp->next;
+        j--;
+    }
     return (1);
 }
 
@@ -46,5 +46,5 @@ char *ft_check_list(char *arg, t_queue *queue)
         //with atoi: differenciate 0 as input and 0 as error
         i++;
     }
-    
+
 }
