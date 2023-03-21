@@ -41,14 +41,9 @@ char *ft_check_list(char *arg, t_queue *queue)
     lst = ft_split(arg, ' ');
     if (!lst)
         return ("KO");
-    // nbr = ft_atoi(lst[0]);
-    // printf("'%d' ", nbr);
-    // printf("'%s'", lst[0]);
-    // if (!ft_double(i, lst, nbr))
-    //         return ("KO");
+
     while (lst[i])
     {
-        //printf("%s ", lst[i]);
         nbr = ft_atoi(lst[i]);
         if (nbr > INT_MAX)
             return ("KO");

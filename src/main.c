@@ -19,7 +19,7 @@ int main (int argc, char **argv)
 	{
 		if (ft_check_list(argv[i], &queue_a) == "KO")
 		{
-			write(1, "KO", 2);
+			write(1, "Error\n", 7);
 			return (0);
 		}
 		// if (!ft_double(i, lst, nbr))
@@ -28,8 +28,8 @@ int main (int argc, char **argv)
 	}
 	if (!ft_double_check(&queue_a))
 	{
-			write(1, "KO", 2);
-			return (0);
+		write(1, "Error\n", 7);
+		return (0);
 	}
 	// if (argv[1])
 	// 	printf("%d|>", argc);
