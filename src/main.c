@@ -17,11 +17,16 @@ int main (int argc, char **argv)
 	int i = 1;
 	while (argv[i])
 	{
-		ft_check_list(argv[i], &queue_a);
-		/* if == "KO"
-			free_and_exite(queue_a, queue_b)*/
+		if (ft_check_list(argv[i], &queue_a) == "KO")
+		{
+			//write(1, "KO", 2);
+			return (0);
+		}
+		// if (!ft_double(i, lst, nbr))
+        //     	return (0);
 		i++;
 	}
+
 	// if (argv[1])
 	// 	printf("%d|>", argc);
 
@@ -34,7 +39,7 @@ int main (int argc, char **argv)
 
 	//ft_index(&queue_a);
 	//ft_get_max_bits(&queue_a);
-	ft_sort(&queue_a, &queue_b);
+	//ft_sort(&queue_a, &queue_b);
 	/* if !queue_b
 		free and exit*/
 	//int	size;

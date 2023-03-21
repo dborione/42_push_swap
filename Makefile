@@ -19,11 +19,12 @@ FILES = main	\
 		parsing	\
 		queue_utils	\
 		moves	\
-		ft_split 	\
+		ft_split ft_strchr	\
 		ft_atoi ft_strlcpy ft_strlen ft_substr \
 		sort_small 	\
 		sort_big	\
 		sort_utils 	\
+
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
 
