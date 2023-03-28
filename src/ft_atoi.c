@@ -18,10 +18,10 @@ int	ft_convert(const char *str, int i, int sign, unsigned long res)
 {
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (res > 9223372036854775807 && sign == -1)
-			return (0);
-		else if (res > 9223372036854775807)
-			return (-1);
+		// if (res > 9223372036854775807 && sign == -1)
+		// 	return (0);
+		// else if (res > 9223372036854775807)
+		// 	return (-1);
 		res = res * 10 + (str[i++] - '0');
 	}
 	return (res * sign);

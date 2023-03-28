@@ -7,6 +7,7 @@ int	ft_push(t_queue *queue_a, t_queue *queue_b)
 
 	tmp = ft_dequeue_head(queue_a);
 	ft_enqueue_node(queue_b, tmp);
+    free(tmp);
     //write(1, "pa\n", 3);
     return (1);
 }
@@ -20,6 +21,7 @@ int ft_r_rotate(t_queue *queue)
 	tmp = queue->head;
     ft_dequeue_head(queue);
 	ft_enqueue(queue, tmp->value);
+    free(tmp);
     // write(1, "ra\n", 3);
     return (1);
 }
@@ -41,6 +43,7 @@ int ft_rr_reverse_rotate(t_queue *queue)
 
     tmp = ft_dequeue_tail(queue);
 	ft_enqueue_node(queue, tmp);
+    free(tmp);
     //write(1, "rra\n", 4);
     return (1);
 }

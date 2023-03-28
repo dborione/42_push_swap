@@ -107,33 +107,10 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     int i;
 
     ft_index(queue_a);
-   tmp = queue_a->head;
-   size = ft_queue_size(queue_a);
-   max_bits = ft_get_max_bits(queue_a);
+    tmp = queue_a->head;
+    size = ft_queue_size(queue_a);
+    max_bits = ft_get_max_bits(queue_a);
     //printf("%d", max_bits);
-    
-
-    // i = 0;
-    // int j;
-    // while (i < 4)
-    // {
-    //     j = 0;
-    //     while (j < size)
-    //     {
-    //         tmp = queue_a->head;
-    //         if (((tmp->index >> i) & 1) == 1)
-    //             ft_r_rotate(queue_a);
-    //         else
-    //             ft_push(queue_a, queue_b);
-    //         ++j;
-    //     }
-    //     while ((ft_queue_size(queue_b)) != 0)
-    //         ft_push(queue_b, queue_a);
-    //     ++i;
-    // }
-
-
-
     i = 0;
     while (i < max_bits)
     {

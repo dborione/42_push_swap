@@ -30,7 +30,7 @@ int	ft_enqueue(t_queue *queue, int value)
 	// if the queue is empty, the head points to new node
 	if (!queue->head)
 		queue->head = newnode;
-
+	//free(newnode);
 	// for a queue with one node, node is both head and tail of the queue
 	return (1);
 }
@@ -56,7 +56,7 @@ int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 	if (!queue->tail)
 		queue->tail = newnode;
 
-   // free(node);
+   	//free(node);
 	// for a queue with one node, node is both head and tail of the queue
 	return (1);
 }
@@ -125,16 +125,11 @@ void	ft_free_queue(t_queue *queue)
 {
 	t_node	*tmp;
 
-	tmp = queue->head;
-	while (tmp)
+	while (queue->head)
 	{
-		tmp->next = NULL;
+		tmp = queue->head;
+		queue->head = queue->head->next;
 		free(tmp);
-		queue->head = tmp;
 	}
-	//free(tmp);
-	// queue->head->value = '\0';
-	// free(queue->head->next);
-	// queue->tail->value = '\0';
-	// free(queue->tail->next);
+	//free(queue);
 }
