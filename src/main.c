@@ -2,18 +2,19 @@
 
 int main (int argc, char **argv)
 {
+	t_queue	queue_a;
+	t_queue	queue_b;
+	int		i;
+
 	if (argc < 2)
 	{
 		write(1, "Error", 6);
 		return (0);
 	}
 
-	t_queue	queue_a;
-	t_queue	queue_b;
-
 	init_queue(&queue_a);
 
-	int i = 1;
+	i = 1;
 	while (argv[i])
 	{
 		if (!ft_check_list(argv[i], &queue_a))
@@ -31,7 +32,7 @@ int main (int argc, char **argv)
 		//ft_free_queue(&queue_a);
 		//ft_free_queue(&queue_b);
 		return (0);
-	}
+	}     
 	if (ft_queue_size(&queue_a) == 1)
     {
         //free(queue_b);
@@ -59,11 +60,11 @@ int main (int argc, char **argv)
 	//int	size;
 	//size = ft_queue_size(&queue_a);
 	//printf("%d", size);
-	ft_free_queue(&queue_a);
-	ft_free_queue(&queue_b);
+	//ft_free_queue(&queue_a);
+	//ft_free_queue(&queue_b);
 	
-	//ft_print_queue(&queue_a);
-	//ft_print_queue(&queue_b);
+	ft_print_queue(&queue_a);
+	ft_print_queue(&queue_b);
 	
 
 	//system("leaks push_swap");

@@ -40,9 +40,10 @@ int  ft_double_check(t_queue *queue)
 int ft_check_list(char *arg, t_queue *queue)
 {
     char    **lst;
-    int i = 0;
-    int nbr;
+    int     i;
+    int     nbr;
 
+    i = 0;
     while (arg[i])
     {
         if (arg[i] >= '0' && arg[i] <= '9')
