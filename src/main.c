@@ -6,9 +6,11 @@ int main (int argc, char **argv)
 	t_queue	queue_b;
 	int		i;
 
-	if (argc < 2)
+	// if (argc == 2)
+	// 	return (0);
+	if (argc <= 1)
 	{
-		write(1, "Error\n", 7);
+		//write(1, "Error\n", 7);
 		//system("leaks push_swap");
 		return (0);
 	}
