@@ -12,12 +12,12 @@
 
 #	Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra 
 
 #	Sources
 FILES = main	\
 		parsing	\
-		queue_utils	\
+		moves_utils	\
 		moves	\
 		ft_split ft_strchr	\
 		ft_atoi ft_strlcpy ft_strlen ft_substr \

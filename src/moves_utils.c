@@ -12,7 +12,7 @@ void	init_queue(t_queue *queue)
 /*
 ** Add node to tail of queue
 */
-int	ft_enqueue(t_queue *queue, int value)
+int	ft_enqueue_tail(t_queue *queue, int value)
 {
 	t_node	*newnode;
 
@@ -38,30 +38,20 @@ int	ft_enqueue(t_queue *queue, int value)
 /*
 ** Add node to beginning of queue
 */
-int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
+int	ft_enqueue_head(t_queue *queue, int value)
 {
 	t_node	*newnode;
 
 	newnode = malloc(sizeof(*newnode));
 	if (!newnode)
 		return (0);
-	newnode = node;
-   
-	// if there is a tail, point tail to newnode
-	if (queue->head)
-        newnode->next = queue->head;
-	queue->head = newnode; // leak here i think?
-
-	// if the queue is empty, the head points to new node
+	newnode->value = value;
+	newnode->next = queue->head;
+	queue->head = newnode; 
 	if (!queue->tail)
 		queue->tail = newnode;
-	printf("%d\n", newnode->value);
-
-   	//free(node);
-	// for a queue with one node, node is both head and tail of the queue
 	return (1);
 }
-
 
 /*
 ** Remove node from head of queue

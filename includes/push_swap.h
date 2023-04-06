@@ -23,10 +23,10 @@ typedef struct s_queue
 
 
 void	init_queue(t_queue *queue);
-int	ft_enqueue(t_queue *queue, int value);
+int	ft_enqueue_tail(t_queue *queue, int value);
+int ft_enqueue_head(t_queue *queue, int value);
 t_node	*ft_dequeue_head(t_queue *queue);
 t_node 	*ft_dequeue_tail(t_queue *queue);
-int	ft_enqueue_node(t_queue *queue, t_node *node);
 
 int	ft_push(t_queue *queue_a, t_queue *queue_b);
 int ft_r_rotate(t_queue *queue);

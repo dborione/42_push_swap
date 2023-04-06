@@ -1,31 +1,6 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
-
-int	ft_enqueue_head(t_queue *queue, int value)
-{
-	t_node	*newnode;
-
-	newnode = malloc(sizeof(*newnode));
-	if (!newnode)
-		return (0); // free rest of queue if it exists
-	newnode->value = value;
-	newnode->next = queue->head; // end of the list
-
-	// if there is a tail, point tail to newnode
-	// if (queue->head)
-	// 	queue->head->next = newnode;
-	queue->head = newnode; // leak here i think?
-
-	// if the queue is empty, the head points to new node
-	if (!queue->tail)
-		queue->tail = newnode;
-	//free(newnode);
-	// for a queue with one node, node is both head and tail of the queue
-	return (1);
-}
-
-
 int	ft_push(t_queue *queue_a, t_queue *queue_b)
 {
 	t_node	*tmp;
@@ -51,7 +26,7 @@ int ft_r_rotate(t_queue *queue)
         return (0);
 	tmp = queue->head;
     ft_dequeue_head(queue);
-	ft_enqueue(queue, tmp->value);
+	ft_enqueue_tail(queue, tmp->value);
     free(tmp);
     // write(1, "ra\n", 3);
     return (1);
@@ -73,7 +48,7 @@ int ft_rr_reverse_rotate(t_queue *queue)
     t_node *tmp;
 
     tmp = ft_dequeue_tail(queue);
-	ft_enqueue_node(queue, tmp);
+	ft_enqueue_head(queue, tmp->value);
     free(tmp);
     //write(1, "rra\n", 4);
     return (1);

@@ -9,6 +9,7 @@ int main (int argc, char **argv)
 	if (argc < 3)
 	{
 		write(1, "Error\n", 7);
+		system("leaks push_swap");
 		return (0);
 	}
 
@@ -22,6 +23,7 @@ int main (int argc, char **argv)
 			write(1, "Error\n", 7);
 			//ft_free_queue(&queue_a);
 			//ft_free_queue(&queue_b);
+			system("leaks push_swap");
 			return (0);
 		}
 		i++;
@@ -31,6 +33,7 @@ int main (int argc, char **argv)
 		write(1, "Error\n", 7);
 		//ft_free_queue(&queue_a);
 		//ft_free_queue(&queue_b);
+		system("leaks push_swap");
 		return (0);
 	}     
 	if (ft_queue_size(&queue_a) == 1)
@@ -38,15 +41,10 @@ int main (int argc, char **argv)
         //free(queue_b);
 		//ft_free_queue(&queue_a);
 		write(1, "Error\n", 7);
+		system("leaks push_swap");
         return (0);
     }
 	init_queue(&queue_b);
-	// if (argv[1])
-	// 	printf("%d|>", argc);
-
-	// if (argc == 4) 
-	// 	ft_sort_three(&queue_a);
-	// if (argc == 5 || argc == 6)
 
 	// int min = ft_get_min(&queue_a);
 	// printf("%d ", min);
@@ -60,12 +58,13 @@ int main (int argc, char **argv)
 	//int	size;
 	//size = ft_queue_size(&queue_a);
 	//printf("%d", size);
+	
 	ft_free_queue(&queue_a);
 	ft_free_queue(&queue_b);
-	
+
 	//ft_print_queue(&queue_a);
 	//ft_print_queue(&queue_b);
-	
+	//printf("%d\n", queue_a.head->index);
 
 	//system("leaks push_swap");
 	//read(\0);

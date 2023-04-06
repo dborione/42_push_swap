@@ -66,7 +66,7 @@ int ft_check_list(char *arg, t_queue *queue)
             printf("dsdsffsd");
             return (0);
         }
-        ft_enqueue(queue, nbr); 
+        ft_enqueue_tail(queue, nbr); 
         //with atoi: differenciate 0 as input and 0 as error
         i++;
     }
