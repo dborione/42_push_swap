@@ -1,22 +1,6 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
-int	ft_print_index(t_queue *queue)
-{
-	t_node	*tmp;
-	
-	tmp = queue->head;
-	while(tmp)
-	{
-		printf("%d ", tmp->index);
-		tmp = tmp->next;
-	}
-	printf("||");
-	free(tmp);
-	return (1);
-}
-
-
 int ft_get_index_min(t_queue *queue, int min)
 {
     t_node	*tmp;
@@ -71,10 +55,6 @@ void ft_index(t_queue *queue)
         else
             tmp = tmp->next;
 	}
-   //free(tmp); // culprit
-    // ft_print_queue(queue);
-    // printf("\n");
-    // ft_print_index(queue);
 }
 
 int ft_get_max_bits(t_queue *queue)
@@ -101,20 +81,14 @@ int ft_get_max_bits(t_queue *queue)
 
 void ft_radix(t_queue *queue_a, t_queue *queue_b)
 {
-    t_node	*tmp;
     int max_bits;
     int size;
     int i;
 
     ft_index(queue_a);
-    tmp = queue_a->head;
     size = ft_queue_size(queue_a);
-   // printf("%d", size);
     max_bits = ft_get_max_bits(queue_a);
-   // printf("%d", max_bits);
     i = 0;
-   // printf("%d/", (0 >> i) & 1);
-
     while (i < max_bits)
     {
         while (size > 0)
