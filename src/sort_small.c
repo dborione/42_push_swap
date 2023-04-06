@@ -32,8 +32,6 @@ int ft_sort_three(t_queue *queue)
     return (0);
 }
 
-
-
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 {
     int min;
@@ -57,8 +55,11 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
         }
         i--;
     }
+    //printf("%d\n", queue_b->head->value);
     ft_sort_three(queue_a);
+
     ft_push(queue_b, queue_a);
+
     printf("pa\n");
     if (queue_a->head->value == max)
     {

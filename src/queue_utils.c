@@ -55,6 +55,7 @@ int	ft_enqueue_node(t_queue *queue, t_node *node) //segfault
 	// if the queue is empty, the head points to new node
 	if (!queue->tail)
 		queue->tail = newnode;
+	printf("%d\n", newnode->value);
 
    	//free(node);
 	// for a queue with one node, node is both head and tail of the queue

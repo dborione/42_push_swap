@@ -6,9 +6,9 @@ int main (int argc, char **argv)
 	t_queue	queue_b;
 	int		i;
 
-	if (argc < 2)
+	if (argc < 3)
 	{
-		write(1, "Error", 6);
+		write(1, "Error\n", 7);
 		return (0);
 	}
 
@@ -60,11 +60,11 @@ int main (int argc, char **argv)
 	//int	size;
 	//size = ft_queue_size(&queue_a);
 	//printf("%d", size);
-	//ft_free_queue(&queue_a);
-	//ft_free_queue(&queue_b);
+	ft_free_queue(&queue_a);
+	ft_free_queue(&queue_b);
 	
-	ft_print_queue(&queue_a);
-	ft_print_queue(&queue_b);
+	//ft_print_queue(&queue_a);
+	//ft_print_queue(&queue_b);
 	
 
 	//system("leaks push_swap");

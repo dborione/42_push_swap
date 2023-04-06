@@ -1,13 +1,44 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
+
+int	ft_enqueue_head(t_queue *queue, int value)
+{
+	t_node	*newnode;
+
+	newnode = malloc(sizeof(*newnode));
+	if (!newnode)
+		return (0); // free rest of queue if it exists
+	newnode->value = value;
+	newnode->next = queue->head; // end of the list
+
+	// if there is a tail, point tail to newnode
+	// if (queue->head)
+	// 	queue->head->next = newnode;
+	queue->head = newnode; // leak here i think?
+
+	// if the queue is empty, the head points to new node
+	if (!queue->tail)
+		queue->tail = newnode;
+	//free(newnode);
+	// for a queue with one node, node is both head and tail of the queue
+	return (1);
+}
+
+
 int	ft_push(t_queue *queue_a, t_queue *queue_b)
 {
 	t_node	*tmp;
 
-	tmp = ft_dequeue_head(queue_a);
-	ft_enqueue_node(queue_b, tmp);
-    //free(tmp);
+	// tmp = ft_dequeue_head(queue_a);
+
+    tmp = queue_a->head;
+    ft_dequeue_head(queue_a);
+
+	//tmp = ft_dequeue_head(queue_a);
+    //ft_enqueue_node(queue_b, tmp);
+	ft_enqueue_head(queue_b, tmp->value);
+    free(tmp);
     //write(1, "pa\n", 3);
     return (1);
 }
