@@ -77,8 +77,10 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
 }
 
 
-void ft_sort(t_queue *queue_a, t_queue *queue_b)
+int ft_sort(t_queue *queue_a, t_queue *queue_b)
 {
+    if (ft_is_sorted(queue_a))
+        return (0);
     if (ft_queue_size(queue_a) == 2)
         ft_sort_two(queue_a);
     else if (ft_queue_size(queue_a) == 3)
@@ -87,4 +89,5 @@ void ft_sort(t_queue *queue_a, t_queue *queue_b)
         ft_sort_five(queue_a, queue_b);
     else
         ft_radix(queue_a, queue_b);
+    return (1);
 }

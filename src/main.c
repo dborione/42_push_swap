@@ -54,12 +54,13 @@ int main (int argc, char **argv)
     {
         //free(queue_b);
 		//ft_free_queue(&queue_a);
-		ft_putstr_fd("Error\n", 2);
+		//ft_putstr_fd("Error\n", 2);
 		//system("leaks push_swap");
         return (0);
     }
 	init_queue(&queue_b);
-	ft_sort(&queue_a, &queue_b);
+	if (!ft_sort(&queue_a, &queue_b))
+		return (0);
 	
 	ft_free_queue(&queue_a);
 	ft_free_queue(&queue_b);

@@ -63,16 +63,16 @@ int ft_check_list(char *arg, t_queue *queue)
     int     i;
     int     nbr;
 
-    i = 0;
-    while (arg[i])
-    {
-        if (arg[i] >= '0' && arg[i] <= '9')
-            i++;
-        else if (arg[i] == ' ' || arg[i] == '-')
-            i++;
-        else
-            return (0);
-    }
+    // i = 0;
+    // while (arg[i])
+    // {
+    //     if (arg[i] >= '0' && arg[i] <= '9')
+    //         i++;
+    //     else if (arg[i] == ' ' || arg[i] == '-')
+    //         i++;
+    //     else
+    //         return (0);
+    // }
     i = 0;
     lst = ft_split(arg, ' ');
     if (!lst)
@@ -81,12 +81,9 @@ int ft_check_list(char *arg, t_queue *queue)
 
     while (lst[i])
     {
-        nbr = ft_atoi(lst[i]);
-        if (nbr > INT_MAX || nbr < INT_MIN)
-        {
-            printf("dsdsffsd");
+        if (ft_atoi(lst[i]) == -33)
             return (0);
-        }
+        nbr = ft_atoi(lst[i]);
         ft_enqueue_tail(queue, nbr); 
         //with atoi: differenciate 0 as input and 0 as error
         i++;
