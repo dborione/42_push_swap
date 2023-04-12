@@ -17,77 +17,10 @@ char	**ft_free_tab(char **tab)
 
 int  ft_double_check(t_queue *queue)
 {
-    // t_node *tmp;
-    // int j;
-    // int i;
-
-    // tmp = queue->head;
-    // j = ft_queue_size(queue);
-    // i = 0;
-    // i = tmp->value;
-    // int x = 1;
-    // while (j > 0)
-    // {
-    //     while (j > 0)
-    //     {
-    //         printf("%d:", i);
-    //         if (tmp == queue->tail)
-    //             j--;
-    //         else
-    //         {
-    //             tmp = tmp->next;
-    //             printf("%d\n", tmp->value);
-    //             if (tmp->value == i)
-    //                 return (0);
-    //             j--;
-    //         }
-    //     }
-    //     j = ft_queue_size(queue) - x;
-    //     i = tmp->value;
-    //     x++;
-    // }
-    // //free(tmp);
-    // return (1);
-
     t_node *tmp;
     t_node *tmp2;
     int j;
     int i;
-    // int x;
-
-    // tmp = queue->head;
-    // tmp2 = queue->head;
-    // i = 1;
-    // j = ft_queue_size(queue);
-    // //x = tmp->value;
-    // while (i != j)
-    // {
-    //     while (j > 1)
-    //     {
-    //         x = tmp->value;
-    //         printf("%d:", x);
-    //         if (tmp == queue->tail)
-    //             j--;
-    //         else
-    //         {
-    //             tmp = tmp->next;
-    //             x = tmp->value;
-    //             printf("%d\n", tmp2->value);
-    //             if (tmp2->value == x)
-    //                 return (0);
-    //             j--;
-    //         }
-    //     }
-    //     if (tmp2 == queue->tail)
-    //         i++;
-    //     else
-    //     {
-    //         tmp2 = tmp2->next;
-    //         j = ft_queue_size(queue) - i;
-    //         i++;
-    //     }
-    // }
-    // return (1);
 
     tmp = queue->head;
     tmp2 = tmp->next;
@@ -97,8 +30,6 @@ int  ft_double_check(t_queue *queue)
     {
         while (i > 1)
         {
-            printf("%d:", tmp->value);
-            printf("%d\n", tmp2->value); 
             if (tmp->value == tmp2->value)
                 return (0);
             if (tmp2 == queue->tail)
@@ -109,8 +40,6 @@ int  ft_double_check(t_queue *queue)
                 i--;
             }
         }
-        printf("j = %d, ", j);
-        printf("i = %d\n", i);
         if (tmp == queue->tail)
             j++;
         else
