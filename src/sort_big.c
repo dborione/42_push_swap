@@ -5,12 +5,12 @@ int ft_get_index_min(t_queue *queue, int min)
 {
     t_node	*tmp;
     int new_min;
-    int size;
-    int i;
+    //int size;
+    //int i;
 
-    size = ft_queue_size(queue);
+   // size = ft_queue_size(queue);
 	tmp = queue->head;
-    i = 0;
+    //i = 0;
 	while(tmp)
 	{
         if (tmp->value > min)
@@ -33,11 +33,11 @@ void ft_index(t_queue *queue)
     int     index;
     int     min;
     int     size;
-    int     i;
+    //int     i;
     t_node	*tmp;
 
     size = ft_queue_size(queue);
-    i = 0;
+    //i = 0;
     index = 1;
 	tmp = queue->head;
     min = ft_get_min(queue);

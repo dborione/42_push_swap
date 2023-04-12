@@ -17,25 +17,44 @@ char	**ft_free_tab(char **tab)
 
 int  ft_double_check(t_queue *queue)
 {
+    // t_node *tmp;
+    // int j;
+    // int i;
+
+    // tmp = queue->head;
+    // j = ft_queue_size(queue);
+    // i = 0;
+    // i = tmp->value;
+    // int x = 1;
+    // while (j > 0)
+    // {
+    //     while (j > 0)
+    //     {
+    //         printf("%d:", i);
+    //         if (tmp == queue->tail)
+    //             j--;
+    //         else
+    //         {
+    //             tmp = tmp->next;
+    //             printf("%d\n", tmp->value);
+    //             if (tmp->value == i)
+    //                 return (0);
+    //             j--;
+    //         }
+    //     }
+    //     j = ft_queue_size(queue) - x;
+    //     i = tmp->value;
+    //     x++;
+    // }
+    // //free(tmp);
+    // return (1);
+
     t_node *tmp;
     int j;
     int i;
 
-    tmp = queue->head;
-    i = 0;
-    j = ft_queue_size(queue);
-    while (j > 1)
-    {
-        i = tmp->value;
-        tmp = tmp->next;
-        if (tmp->value == i)
-            return (0);
-        //tmp = tmp->next;
-        j--;
-    }
-    
-    //free(tmp);
-    return (1);
+
+
 }
 
 /*

@@ -49,11 +49,11 @@ int main (int argc, char **argv)
 	init_queue(&queue_b);
 	ft_sort(&queue_a, &queue_b);
 	
-	ft_free_queue(&queue_a);
-	ft_free_queue(&queue_b);
+	//ft_free_queue(&queue_a);
+	//ft_free_queue(&queue_b);
 
-	// ft_print_queue(&queue_a);
-	// ft_print_queue(&queue_b);
+	ft_print_queue(&queue_a);
+	ft_print_queue(&queue_b);
 
 	//system("leaks push_swap");
 	return (0);
