@@ -17,11 +17,11 @@ int	ft_print_queue(t_queue *queue)
 
 int ft_get_min(t_queue *queue)
 {
+	t_node	*tmp;
     int min;
-    t_node	*tmp;
 
-    min = queue->head->value;
 	tmp = queue->head;
+    min = queue->head->value;
 	while(tmp)
 	{
         if (tmp->value <= min)
@@ -31,40 +31,37 @@ int ft_get_min(t_queue *queue)
 		}
 		tmp = tmp->next;
 	}
-	free(tmp);
 	return (min);
 }
 
 int ft_get_max(t_queue *queue)
 {
+	t_node	*tmp;
     int max;
-    t_node	*tmp;
 
-    max = queue->head->value;
 	tmp = queue->head;
+    max = queue->head->value;
 	while(tmp)
 	{
         if (tmp->value >= max)
             max = tmp->value;
 		tmp = tmp->next;
 	}
-	free(tmp);
 	return (max);
 }
 
 int ft_queue_size(t_queue *queue)
 {
+	t_node	*tmp;
     int size;
-    t_node	*tmp;
 
-    size = 0;
 	tmp = queue->head;
+    size = 0;
 	while(tmp)
 	{
 		tmp = tmp->next;
         size++;
 	}
-	free(tmp);
 	return (size);
 }
 
@@ -73,9 +70,8 @@ int ft_is_sorted(t_queue *queue)
     t_node	*tmp;
     int i;
 
-    i = ft_queue_size(queue);
-	
 	tmp = queue->head;
+    i = ft_queue_size(queue);
 	while(i > 1)
 	{
 		if (tmp->value > tmp->next->value)
@@ -83,54 +79,5 @@ int ft_is_sorted(t_queue *queue)
 		tmp = tmp->next;
         i--;
 	}
-	free(tmp);
 	return (1);
 }
-
-
-// void    ft_free_and_exit(t_queue *queue)
-// {
-//     int size;
-
-//     size = ft_queue_size(queue);
-//     t_node	*tmp;
-//     while (size > 0)
-//     {
-//         tmp->value = NULL;
-// 		tmp = tmp->next;
-//         size--;
-//     }
-//     size = ft_queue_size(queue);
-//     while (size > 0)
-//     {
-//         tmp->value = NULL;
-// 		tmp = tmp->next;
-//         size--;
-//     }
-
-// }
-
-// void	ft_lstdelone(t_node *lst, void (*del)(void *))
-// {
-// 	if (lst && del)
-// 	{
-// 		del(lst->value);
-// 		free(lst);
-// 	}
-// }
-
-
-// void	ft_lstclear(t_node **lst, void (*del)(void *))
-// {
-// 	t_node	*tmp;
-
-// 	if (!lst || !*lst || !del)
-// 		return ;
-// 	while (*lst)
-// 	{
-// 		tmp = *lst;
-// 		*lst = tmp->next;
-
-// 		ft_lstdelone(tmp, del);
-// 	}
-// }

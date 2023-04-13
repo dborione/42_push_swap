@@ -13,62 +13,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../includes/push_swap.h"
-//#include "libft.h"
-
-// int	ft_convert(const char *str, int i, int sign, long res)
-// {
-// 	while (str[i] >= '0' && str[i] <= '9')
-// 	{
-// 		// if (res > 9223372036854775807 && sign == -1)
-// 		// 	return (0);
-// 		// else if (res > 9223372036854775807)
-// 		// 	return (-1);
-// 		if (res < -2147483648)
-//         {
-//             printf("dsdsffsd");
-//             return (-33);
-//         }
-// 		res = res * 10 + (str[i++] - '0');
-// 	}
-// 	return (res * sign);
-// }
-
-// int	ft_atoi(const char *str)
-// {
-// 	unsigned long			res;
-// 	int						sign;
-// 	int						count;
-// 	int						i;
-
-// 	res = 0;
-// 	count = 0;
-// 	sign = 1;
-// 	i = 0;
-// 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-// 		|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
-// 		i++;
-// 	while (str[i] == '-' || str[i] == '+')
-// 	{
-// 		if (str[i] == '-')
-// 			sign = -1;
-// 		i++;
-// 		count++;
-// 	}
-// 	if (count > 1)
-// 		return (0);
-// 	return (ft_convert(str, i, sign, res));
-// }
-
 
 int        ft_atoi(char *str)
 {
-    int                i;
-	int                op;
-   	long                nbr;
+    int		i;
+	int		op;
+	int		count;
+   	long	nbr;
 
     i = 0;
     op = 1;
     nbr = 0;
+	count = 0;
     while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || str[i] == '\r'
         || str[i] == '\t' || str[i] == '\v')
             i++;
@@ -77,9 +33,16 @@ int        ft_atoi(char *str)
         if (str[i] == '-')
             op = -1;
         i++;
+		count++;
     }
+	if (str[i] == '\0')
+		return (-33);
+	if (count > 1)
+		return (-33);
     while (str[i] >= '0' && str[i] <= '9')
     	nbr = nbr * 10 + (str[i++] - '0');
+	if (str[i] != '\0')
+		return (-33);
 	nbr = nbr * op;	
 	if (nbr > INT_MAX || nbr < INT_MIN)
 		return (-33);

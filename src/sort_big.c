@@ -3,14 +3,11 @@
 
 int ft_get_index_min(t_queue *queue, int min)
 {
-    t_node	*tmp;
-    int new_min;
-    //int size;
-    //int i;
+    t_node  *tmp;
+    int     new_min;
 
-   // size = ft_queue_size(queue);
+    new_min = 0;
 	tmp = queue->head;
-    //i = 0;
 	while(tmp)
 	{
         if (tmp->value > min)
@@ -24,22 +21,19 @@ int ft_get_index_min(t_queue *queue, int min)
             new_min = tmp->value;
 		tmp = tmp->next;
 	}
-	free(tmp);
 	return (new_min);
 }
 
 void ft_index(t_queue *queue)
 {
+    t_node	*tmp;
+    int     size;
     int     index;
     int     min;
-    int     size;
-    //int     i;
-    t_node	*tmp;
 
-    size = ft_queue_size(queue);
-    //i = 0;
-    index = 1;
 	tmp = queue->head;
+    size = ft_queue_size(queue);
+    index = 1;
     min = ft_get_min(queue);
     min = ft_get_index_min(queue, min);
 	while(size > 1)
@@ -59,14 +53,13 @@ void ft_index(t_queue *queue)
 
 int ft_get_max_bits(t_queue *queue)
 {
-    int max_bits;
-    int size;
     t_node	*tmp;
+    int     max_bits;
+    int     size;
 
     tmp = queue->head;
     size = ft_queue_size(queue);
     max_bits = 0;
-
     while (size > 0)
     {
         while ((tmp->index >> max_bits) > 0)
@@ -74,15 +67,14 @@ int ft_get_max_bits(t_queue *queue)
         tmp = tmp->next;
         size--;
     }
-    free(tmp);
     return (max_bits);
 }
 
 
 void ft_radix(t_queue *queue_a, t_queue *queue_b)
 {
-    int max_bits;
     int size;
+    int max_bits;
     int i;
 
     ft_index(queue_a);

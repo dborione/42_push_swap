@@ -122,5 +122,4 @@ void	ft_free_queue(t_queue *queue)
 		queue->head = queue->head->next;
 		free(tmp);
 	}
-	//free(queue);
 }
