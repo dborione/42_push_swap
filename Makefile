@@ -17,10 +17,11 @@ CFLAGS = -Wall -Wextra -Werror
 #	Sources
 FILES = main	\
 		parsing	\
+		parsing_utils	\
 		moves_utils	\
 		moves	\
-		ft_split ft_strchr	\
-		ft_atoi ft_strlcpy ft_strlen ft_substr \
+		ft_split 	\
+		ft_atoi \
 		sort_small 	\
 		sort_big	\
 		sort_utils 	\

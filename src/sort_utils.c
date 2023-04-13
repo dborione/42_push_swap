@@ -1,24 +1,21 @@
 #include "../includes/push_swap.h"
 
-int	ft_print_queue(t_queue *queue)
+void	ft_free_queue(t_queue *queue)
 {
 	t_node	*tmp;
-	
-	tmp = queue->head;
-	while(tmp)
+
+	while (queue->head)
 	{
-		printf("%d ", tmp->value);
-		tmp = tmp->next;
+		tmp = queue->head;
+		queue->head = queue->head->next;
+		free(tmp);
 	}
-	printf("||");
-	free(tmp);
-	return (1);
 }
 
 int ft_get_min(t_queue *queue)
 {
 	t_node	*tmp;
-    int min;
+    int		min;
 
 	tmp = queue->head;
     min = queue->head->value;
@@ -37,7 +34,7 @@ int ft_get_min(t_queue *queue)
 int ft_get_max(t_queue *queue)
 {
 	t_node	*tmp;
-    int max;
+    int		max;
 
 	tmp = queue->head;
     max = queue->head->value;
@@ -53,7 +50,7 @@ int ft_get_max(t_queue *queue)
 int ft_queue_size(t_queue *queue)
 {
 	t_node	*tmp;
-    int size;
+    int		size;
 
 	tmp = queue->head;
     size = 0;
@@ -68,7 +65,7 @@ int ft_queue_size(t_queue *queue)
 int ft_is_sorted(t_queue *queue)
 {
     t_node	*tmp;
-    int i;
+    int		i;
 
 	tmp = queue->head;
     i = ft_queue_size(queue);

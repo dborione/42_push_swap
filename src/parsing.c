@@ -1,19 +1,6 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
-char	**ft_free_tab(char **tab)
-{
-	int	x;
-
-	x = 0;
-	while (tab[x])
-	{
-		free(tab[x]);
-		x++;
-	}
-	free(tab);
-	return (NULL);
-}
 
 int  ft_double_check(t_queue *queue)
 {
@@ -64,20 +51,9 @@ int ft_check_list(char *arg, t_queue *queue)
     int     nbr;
 
     i = 0;
-    while (arg[i])
-    {
-        if (arg[i] >= '0' && arg[i] <= '9')
-            i++;
-        else if (arg[i] == ' ' || arg[i] == '-')
-            i++;
-        else
-            return (0);
-    }
-    i = 0;
     lst = ft_split(arg, ' ');
     if (!lst)
         return (0);
-
     while (lst[i])
     {
         if (ft_atoi(lst[i]) == -33)
@@ -93,3 +69,14 @@ int ft_check_list(char *arg, t_queue *queue)
     ft_free_tab(lst);
     return (1);
 }
+
+    // i = 0;
+    // while (arg[i])
+    // {
+    //     if (arg[i] >= '0' && arg[i] <= '9')
+    //         i++;
+    //     else if (arg[i] == ' ' || arg[i] == '-')
+    //         i++;
+    //     else
+    //         return (0);
+    // }

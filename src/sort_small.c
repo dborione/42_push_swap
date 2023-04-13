@@ -6,7 +6,7 @@ int ft_sort_two(t_queue *queue)
     if (queue->head->value > queue->tail->value)
     {
         ft_swap(queue);
-        printf("sa\n");
+        ft_putstr_fd("sa\n", 1);
     }
     return (1);
 }
@@ -20,16 +20,35 @@ int ft_sort_three(t_queue *queue)
         || queue->head->next->value > queue->tail->value)
     {
         ft_r_rotate(queue);
-        printf("ra\n");
+        ft_putstr_fd("ra\n", 1);
         ft_sort_three(queue);
     }
     if (queue->head->value > queue->head->next->value)
     {
         ft_swap(queue);
-        printf("sa\n");
+        ft_putstr_fd("sa\n", 1);
         ft_sort_three(queue);
     }
     return (0);
+}
+
+static void    ft_sort_five_utils(t_queue *queue_a, t_queue *queue_b, int max)
+{
+    ft_sort_three(queue_a);
+    ft_push(queue_b, queue_a);
+    ft_putstr_fd("pa\n", 1);
+    if (queue_a->head->value == max)
+    {
+        ft_r_rotate(queue_a);
+        ft_putstr_fd("ra\n", 1);
+    }
+    ft_push(queue_b, queue_a);
+    ft_putstr_fd("pa\n", 1);
+    if (queue_a->head->value == max)
+    {
+        ft_r_rotate(queue_a);
+        ft_putstr_fd("ra\n", 1);
+    }
 }
 
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
@@ -46,48 +65,15 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
         if (queue_a->head->value == min || queue_a->head->value == max)
         {
             ft_push(queue_a, queue_b);
-            printf("pb\n");
+            ft_putstr_fd("pb\n", 1);
         }
         else
         {
             ft_r_rotate(queue_a);
-            printf("ra\n");
+            ft_putstr_fd("ra\n", 1);
         }
         i--;
     }
-    //printf("%d\n", queue_b->head->value);
-    ft_sort_three(queue_a);
-
-    ft_push(queue_b, queue_a);
-
-    printf("pa\n");
-    if (queue_a->head->value == max)
-    {
-        ft_r_rotate(queue_a);
-        printf("ra\n");
-    }
-    ft_push(queue_b, queue_a);
-    printf("pa\n");
-    if (queue_a->head->value == max)
-    {
-        ft_r_rotate(queue_a);
-        printf("ra\n");
-    }
-    return (1);
-}
-
-
-int ft_sort(t_queue *queue_a, t_queue *queue_b)
-{
-    if (ft_is_sorted(queue_a))
-        return (0);
-    if (ft_queue_size(queue_a) == 2)
-        ft_sort_two(queue_a);
-    else if (ft_queue_size(queue_a) == 3)
-        ft_sort_three(queue_a);
-    else if (ft_queue_size(queue_a) <= 5)
-        ft_sort_five(queue_a, queue_b);
-    else
-        ft_radix(queue_a, queue_b);
+    ft_sort_five_utils(queue_a, queue_b, max);
     return (1);
 }

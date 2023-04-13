@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <string.h>
 #include "../includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -27,11 +25,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return ((char *)&s[i]);
 }
-
-/*int	main()
-{
-	char s[] = "hfjs";
-
-	printf("%s", ft_strchr(s, 't'));
-	return (0);
-}*/
