@@ -1,7 +1,6 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
-
 int  ft_double_check(t_queue *queue)
 {
     t_node *tmp;
@@ -41,9 +40,6 @@ int  ft_double_check(t_queue *queue)
     return (1);
 }
 
-/*
-** Take the args as input and split them. Take the result and put it in the queue
-*/
 int ft_check_list(char *arg, t_queue *queue)
 {
     char    **lst;
@@ -57,13 +53,9 @@ int ft_check_list(char *arg, t_queue *queue)
     while (lst[i])
     {
         if (ft_atoi(lst[i]) == -33)
-        {
-            ft_free_tab(lst);
-            return (0);
-        }
+            return (ft_free_tab(lst));
         nbr = ft_atoi(lst[i]);
         ft_enqueue_tail(queue, nbr); 
-        //with atoi: differenciate 0 as input and 0 as error
         i++;
     }
     ft_free_tab(lst);
