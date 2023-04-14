@@ -12,6 +12,12 @@
 
 #include "../includes/push_swap.h"
 
+static void	ft_exit_atoi(char **lst, t_queue *queue)
+{
+	ft_free_tab(lst);
+	ft_exit(queue, 1);
+}
+
 static	int	ft_atoi_utils(char *str, int i)
 {
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n' || str[i] == '\r'
@@ -20,7 +26,7 @@ static	int	ft_atoi_utils(char *str, int i)
 	return (i);
 }
 
-int	ft_atoi(char *str, t_queue *queue)
+int	ft_atoi(char *str, t_queue *queue, char **lst)
 {
 	int		i;
 	int		op;
@@ -38,13 +44,13 @@ int	ft_atoi(char *str, t_queue *queue)
 		count++;
 	}
 	if (count > 1 || str[i] == '\0')
-		ft_exit(queue, 1);
+		ft_exit_atoi(lst, queue);
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = nbr * 10 + (str[i++] - '0');
 	if (str[i])
-		ft_exit(queue, 1);
+		ft_exit_atoi(lst, queue);
 	nbr = nbr * op;
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		ft_exit(queue, 1);
+		ft_exit_atoi(lst, queue);
 	return (nbr);
 }

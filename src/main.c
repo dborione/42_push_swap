@@ -6,7 +6,7 @@
 /*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:26:39 by dborione          #+#    #+#             */
-/*   Updated: 2023/04/14 12:30:34 by dborione         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:38:42 by dborione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int	main(int argc, char **argv)
 	t_queue	queue_b;
 
 	if (argc <= 1)
+		return (0);
+	if (ft_strlen(argv[1]) == 0
+		|| (argv[1][0] == ' ' && ft_strlen(argv[1]) == 1))
 		return (0);
 	init_queue(&queue_a);
 	ft_parsing(&queue_a, argv);

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
 #include "../includes/push_swap.h"
 
 static int	ft_tab_len(const char *ptr, char c)

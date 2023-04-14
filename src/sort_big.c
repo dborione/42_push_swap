@@ -6,13 +6,13 @@
 /*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:44:08 by dborione          #+#    #+#             */
-/*   Updated: 2023/04/14 13:18:23 by dborione         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:53:16 by dborione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_get_index_min(t_queue *queue, int min)
+static	int	ft_get_index_min(t_queue *queue, int min)
 {
 	t_node	*tmp;
 	int		new_min;
@@ -35,7 +35,7 @@ int	ft_get_index_min(t_queue *queue, int min)
 	return (new_min);
 }
 
-void	ft_index(t_queue *queue)
+static	void	ft_index(t_queue *queue)
 {
 	t_node	*tmp;
 	int		size;
@@ -62,7 +62,7 @@ void	ft_index(t_queue *queue)
 	}
 }
 
-int	ft_get_max_bits(t_queue *queue)
+static	int	ft_get_max_bits(t_queue *queue)
 {
 	t_node	*tmp;
 	int		max_bits;

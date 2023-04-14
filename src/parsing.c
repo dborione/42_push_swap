@@ -6,12 +6,11 @@
 /*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:37:15 by dborione          #+#    #+#             */
-/*   Updated: 2023/04/14 13:21:04 by dborione         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:39:00 by dborione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/libft.h"
 
 static	void	ft_double_check_utils(t_queue *queue,
 		t_node *tmp, t_node *tmp2, int i)
@@ -26,7 +25,7 @@ static	void	ft_double_check_utils(t_queue *queue,
 	}
 }
 
-int	ft_double_check(t_queue *queue)
+static int	ft_double_check(t_queue *queue)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
@@ -51,7 +50,7 @@ int	ft_double_check(t_queue *queue)
 	return (1);
 }
 
-int	ft_check_list(char *arg, t_queue *queue)
+static int	ft_check_list(char *arg, t_queue *queue)
 {
 	char	**lst;
 	int		i;
@@ -63,7 +62,7 @@ int	ft_check_list(char *arg, t_queue *queue)
 		return (0);
 	while (lst[i])
 	{
-		nbr = ft_atoi(lst[i], queue);
+		nbr = ft_atoi(lst[i], queue, lst);
 		if (!ft_enqueue_tail(queue, nbr))
 		{
 			ft_free_tab(lst);
@@ -83,7 +82,7 @@ int	ft_parsing(t_queue *queue_a, char **argv)
 	while (argv[i])
 	{
 		if (!ft_check_list(argv[i], queue_a))
-			ft_exit(queue_a, 1);
+			exit(0);
 		i++;
 	}
 	if (!ft_double_check(queue_a))
