@@ -73,3 +73,24 @@ int ft_check_list(char *arg, t_queue *queue)
     //     else
     //         return (0);
     // }
+
+int	ft_parsing (t_queue *queue_a, char **argv)
+{
+	int		i;
+
+	i = 1;
+	while (argv[i])
+	{
+		// if (ft_check_list(argv[i], queue_a) == 5)
+		// 	return (0);
+		// else 
+		if (!ft_check_list(argv[i], queue_a))
+			ft_exit(queue_a, 1);
+		i++;
+	}
+	if (!ft_double_check(queue_a))
+		ft_exit(queue_a, 1);  
+	if (ft_queue_size(queue_a) == 1)
+		ft_exit(queue_a, 0);
+	return (1);
+}

@@ -1,5 +1,4 @@
 #include "../includes/push_swap.h"
-#include "../includes/libft.h"
 
 int ft_get_index_min(t_queue *queue, int min)
 {

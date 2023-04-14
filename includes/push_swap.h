@@ -23,20 +23,15 @@ typedef struct s_queue
 
 
 void	init_queue(t_queue *queue);
-int	ft_enqueue_tail(t_queue *queue, int value);
+int	ft_enqueue_tail(t_queue *queue_a, int value);
 int ft_enqueue_head(t_queue *queue, int value);
 t_node	*ft_dequeue_head(t_queue *queue);
 t_node 	*ft_dequeue_tail(t_queue *queue);
 
 int	ft_push(t_queue *queue_a, t_queue *queue_b);
 int ft_r_rotate(t_queue *queue);
-int ft_rr_rotate(t_queue *queue_a, t_queue *queue_b);
-int ft_rr_reverse_rotate(t_queue *queue);
-int ft_rrr_reverse_rotate(t_queue *queue_a, t_queue *queue_b);
-
-int	ft_print_queue(t_queue *queue);
+int ft_rr_reverse_rotate(t_queue *queue_a);
 int ft_swap(t_queue *queue);
-int ft_ss_double_swap(t_queue *queue_a, t_queue *queue_b);
 
 int ft_check_list(char *arg, t_queue *queue);
 int ft_sort_two(t_queue *queue);
@@ -54,7 +49,8 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b);
 void    ft_free_queue(t_queue *queue);
 int  ft_double_check(t_queue *queue);
 void	ft_putstr_fd(char *s, int fd);
-void ft_exit(t_queue *queue, int error);
+void ft_exit(t_queue *queue_a, int error);
 int		ft_atoi(char *str, t_queue *queue);
+int	ft_parsing (t_queue *queue_a, char **argv);
 
 #endif

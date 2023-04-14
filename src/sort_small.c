@@ -1,15 +1,4 @@
 #include "../includes/push_swap.h"
-#include "../includes/libft.h"
-
-int ft_sort_two(t_queue *queue)
-{
-    if (queue->head->value > queue->tail->value)
-    {
-        ft_swap(queue);
-        ft_putstr_fd("sa\n", 1);
-    }
-    return (1);
-}
 
 int ft_sort_three(t_queue *queue)
 {
@@ -19,7 +8,8 @@ int ft_sort_three(t_queue *queue)
     if (queue->head->value > queue->tail->value
         || queue->head->next->value > queue->tail->value)
     {
-        ft_r_rotate(queue);
+        if (!ft_r_rotate(queue))
+            return (0);
         ft_putstr_fd("ra\n", 1);
         ft_sort_three(queue);
     }
@@ -29,26 +19,30 @@ int ft_sort_three(t_queue *queue)
         ft_putstr_fd("sa\n", 1);
         ft_sort_three(queue);
     }
-    return (0);
+    return (1);
 }
 
-static void    ft_sort_five_utils(t_queue *queue_a, t_queue *queue_b, int max)
+static int ft_sort_five_utils(t_queue *queue_a, t_queue *queue_b, int max)
 {
-    ft_sort_three(queue_a);
+    if (!ft_sort_three(queue_a))
+        return (0);
     ft_push(queue_b, queue_a);
     ft_putstr_fd("pa\n", 1);
     if (queue_a->head->value == max)
     {
-        ft_r_rotate(queue_a);
+        if (!ft_r_rotate(queue_a))
+            return (0);
         ft_putstr_fd("ra\n", 1);
     }
     ft_push(queue_b, queue_a);
     ft_putstr_fd("pa\n", 1);
     if (queue_a->head->value == max)
     {
-        ft_r_rotate(queue_a);
+        if (!ft_r_rotate(queue_a))
+            return (0);
         ft_putstr_fd("ra\n", 1);
     }
+    return (1);
 }
 
 int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
@@ -69,11 +63,13 @@ int ft_sort_five(t_queue *queue_a, t_queue *queue_b)
         }
         else
         {
-            ft_r_rotate(queue_a);
+            if (!ft_r_rotate(queue_a))
+                return (0);
             ft_putstr_fd("ra\n", 1);
         }
         i--;
     }
-    ft_sort_five_utils(queue_a, queue_b, max);
+    if (!ft_sort_five_utils(queue_a, queue_b, max))
+        return (0);
     return (1);
 }
