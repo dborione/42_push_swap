@@ -6,7 +6,7 @@
 /*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:44:08 by dborione          #+#    #+#             */
-/*   Updated: 2023/04/14 12:51:41 by dborione         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:18:23 by dborione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,22 @@ int	ft_get_max_bits(t_queue *queue)
 	return (max_bits);
 }
 
-static	int	ft_radix_utils(t_queue *queue_a, t_queue *queue_b, int i)
+static	int	ft_radix_utils(t_queue *queue_a, t_queue *queue_b, int i, int size)
 {
-	if (((queue_a->head->index >> i) & 1) == 1)
+	while (size > 0)
 	{
-		ft_putstr_fd("ra\n", 1);
-		if (!ft_r_rotate(queue_a))
-			return (0);
-	}
-	else
-	{
-		ft_putstr_fd("pb\n", 1);
-		ft_push(queue_a, queue_b);
+		if (((queue_a->head->index >> i) & 1) == 1)
+		{
+			ft_putstr_fd("ra\n", 1);
+			if (!ft_r_rotate(queue_a))
+				return (0);
+		}
+		else
+		{
+			ft_putstr_fd("pb\n", 1);
+			ft_push(queue_a, queue_b);
+		}
+		size--;
 	}
 	return (1);
 }
@@ -109,12 +113,8 @@ int	ft_radix(t_queue *queue_a, t_queue *queue_b)
 	i = 0;
 	while (i < max_bits)
 	{
-		while (size > 0)
-		{
-			if (!ft_radix_utils(queue_a, queue_b, i))
-				return (0);
-			size--;
-		}
+		if (!ft_radix_utils(queue_a, queue_b, i, size))
+			return (0);
 		while ((ft_queue_size(queue_b)) != 0)
 		{
 			ft_putstr_fd("pa\n", 1);

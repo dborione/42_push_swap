@@ -6,7 +6,7 @@
 /*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:37:15 by dborione          #+#    #+#             */
-/*   Updated: 2023/04/14 12:43:32 by dborione         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:21:04 by dborione         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,40 +63,25 @@ int	ft_check_list(char *arg, t_queue *queue)
 		return (0);
 	while (lst[i])
 	{
-		if (ft_atoi(lst[i], queue) == -33)
+		nbr = ft_atoi(lst[i], queue);
+		if (!ft_enqueue_tail(queue, nbr))
 		{
 			ft_free_tab(lst);
-			return (0);
+			ft_exit(queue, 1);
 		}
-		nbr = ft_atoi(lst[i], queue);
-		ft_enqueue_tail(queue, nbr);
 		i++;
 	}
 	ft_free_tab(lst);
 	return (1);
 }
 
-    // i = 0;
-    // while (arg[i])
-    // {
-    //     if (arg[i] >= '0' && arg[i] <= '9')
-    //         i++;
-    //     else if (arg[i] == ' ' || arg[i] == '-')
-    //         i++;
-    //     else
-    //         return (0);
-    // }
-
-int	ft_parsing(ft_queue *queue_a, char **argv)
+int	ft_parsing(t_queue *queue_a, char **argv)
 {
 	int	i;
 
 	i = 1;
 	while (argv[i])
 	{
-		// if (ft_check_list(argv[i], queue_a) == 5)
-		// 	return (0);
-		// else 
 		if (!ft_check_list(argv[i], queue_a))
 			ft_exit(queue_a, 1);
 		i++;
