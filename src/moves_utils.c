@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dborione <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/14 12:33:33 by dborione          #+#    #+#             */
+/*   Updated: 2023/04/14 12:37:09 by dborione         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	init_queue(t_queue *queue)
@@ -15,7 +27,7 @@ int	ft_enqueue_head(t_queue *queue, int value)
 		return (0);
 	newnode->value = value;
 	newnode->next = queue->head;
-	queue->head = newnode; 
+	queue->head = newnode;
 	if (!queue->tail)
 		queue->tail = newnode;
 	return (1);
@@ -38,7 +50,7 @@ int	ft_enqueue_tail(t_queue *queue, int value)
 	return (1);
 }
 
-t_node 	*ft_dequeue_head(t_queue *queue)
+t_node	*ft_dequeue_head(t_queue *queue)
 {
 	t_node	*tmp;
 
@@ -52,20 +64,20 @@ t_node 	*ft_dequeue_head(t_queue *queue)
 	return (tmp);
 }
 
-t_node 	*ft_dequeue_tail(t_queue *queue)
+t_node	*ft_dequeue_tail(t_queue *queue)
 {
 	t_node	*tmp;
-    t_node	*tmp2;
+	t_node	*tmp2;
 
 	if (!queue->head)
 		return (NULL);
 	tmp = queue->tail;
-    tmp2 = queue->head;
-    while(tmp2->next->next)
-        tmp2 = tmp2->next;
-    queue->tail = tmp2;
-    queue->tail->next = NULL;
+	tmp2 = queue->head;
+	while (tmp2->next->next)
+		tmp2 = tmp2->next;
+	queue->tail = tmp2;
+	queue->tail->next = NULL;
 	if (!queue->tail)
 		queue->head = NULL;
-    return (tmp);
+	return (tmp);
 }
