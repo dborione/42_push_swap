@@ -54,5 +54,7 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b);
 void    ft_free_queue(t_queue *queue);
 int  ft_double_check(t_queue *queue);
 void	ft_putstr_fd(char *s, int fd);
+void ft_exit(t_queue *queue, int error);
+int		ft_atoi(char *str, t_queue *queue);
 
 #endif

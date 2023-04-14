@@ -1,6 +1,18 @@
 #include "../includes/push_swap.h"
 #include "../includes/libft.h"
 
+static void ft_double_check_utils(t_queue *queue, t_node *tmp, t_node *tmp2, int i)
+{
+    while (i > 1)
+    {
+        if (tmp->value == tmp2->value)
+            ft_exit(queue, 1);
+        i--;
+        if (tmp2 != queue->tail)
+            tmp2 = tmp2->next;
+    }
+}
+
 int  ft_double_check(t_queue *queue)
 {
     t_node *tmp;
@@ -14,26 +26,12 @@ int  ft_double_check(t_queue *queue)
     j = 0;
     while (j < ft_queue_size(queue))
     {
-        while (i > 1)
-        {
-            if (tmp->value == tmp2->value)
-                return (0);
-            if (tmp2 == queue->tail)
-                i--;
-            else
-            {
-                tmp2 = tmp2->next;
-                i--;
-            }
-        }
-        if (tmp == queue->tail)
-            j++;
-        else
+        ft_double_check_utils(queue, tmp, tmp2, i);
+        j++;
+        if (tmp != queue->tail)
         {
             tmp = tmp->next;
-            tmp2 = tmp;
-            tmp2 = tmp2->next;
-            j++;
+            tmp2 = tmp->next;
             i = ft_queue_size(queue) - j;
         }
     }
@@ -52,9 +50,12 @@ int ft_check_list(char *arg, t_queue *queue)
         return (0);
     while (lst[i])
     {
-        if (ft_atoi(lst[i]) == -33)
-            return (ft_free_tab(lst));
-        nbr = ft_atoi(lst[i]);
+        if (ft_atoi(lst[i], queue) == -33)
+        {
+            ft_free_tab(lst);
+            return (0);
+        }
+        nbr = ft_atoi(lst[i], queue);
         ft_enqueue_tail(queue, nbr); 
         i++;
     }

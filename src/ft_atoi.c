@@ -1,20 +1,20 @@
 #include "../includes/push_swap.h"
 
-static int	ft_atoi_utils(char *str, int i, int op, long nbr)
+static int	ft_atoi_utils(char *str, int i, int op, long nbr, t_queue *queue)
 {
 	if (str[i] == '\0')
-		return (-33);
+		ft_exit(queue, 1);
     while (str[i] >= '0' && str[i] <= '9')
     	nbr = nbr * 10 + (str[i++] - '0');
 	if (str[i] != '\0')
-		return (-33);
+		ft_exit(queue, 1);
 	nbr = nbr * op;	
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (-33);
+		ft_exit(queue, 1);
 	return (nbr);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, t_queue *queue)
 {
     int		i;
 	int		op;
@@ -36,6 +36,6 @@ int	ft_atoi(char *str)
 		count++;
     }
 	if (count > 1)
-		return (-33);
-	return (ft_atoi_utils(str, i, op, nbr));
+		ft_exit(queue, 1);
+	return (ft_atoi_utils(str, i, op, nbr, queue));
 }

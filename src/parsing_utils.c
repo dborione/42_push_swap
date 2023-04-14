@@ -74,7 +74,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (s2);
 }
 
-int ft_free_tab(char **tab)
+char	**ft_free_tab(char **tab)
 {
 	int	x;
 
