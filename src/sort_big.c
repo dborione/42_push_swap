@@ -69,21 +69,23 @@ int ft_get_max_bits(t_queue *queue)
     return (max_bits);
 }
 
-static  void    ft_radix_utils(t_queue *queue_a, t_queue *queue_b, int i)
+static  int    ft_radix_utils(t_queue *queue_a, t_queue *queue_b, int i)
 {
     if (((queue_a->head->index >> i) & 1) == 1)
     {
         ft_putstr_fd("ra\n", 1);
-        ft_r_rotate(queue_a);
+        if (!ft_r_rotate(queue_a))
+            return (0);
     }
     else
     {
         ft_putstr_fd("pb\n", 1);
         ft_push(queue_a, queue_b);
     }
+    return (1);
 }
 
-void ft_radix(t_queue *queue_a, t_queue *queue_b)
+int ft_radix(t_queue *queue_a, t_queue *queue_b)
 {
     int size;
     int max_bits;
@@ -97,7 +99,8 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
     {
         while (size > 0)
         {
-            ft_radix_utils(queue_a, queue_b, i);
+            if (!ft_radix_utils(queue_a, queue_b, i))
+                return (0);
             size--;
         }
         while ((ft_queue_size(queue_b)) != 0)
@@ -109,4 +112,5 @@ void ft_radix(t_queue *queue_a, t_queue *queue_b)
         size = ft_queue_size(queue_a);
         i++;
     }
+    return (1);
  }
